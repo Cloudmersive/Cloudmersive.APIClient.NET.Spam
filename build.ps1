@@ -2,11 +2,11 @@
 
 Remove-Item –path ./client –recurse
 
-Invoke-WebRequest -Uri 'https://api.cloudmersive.com/virus/docs/v1/swagger' -OutFile '.\virus-api-swagger.json'
-(Get-Content .\virus-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\virus-api-swagger.json
-(Get-Content .\virus-api-swagger.json).replace('"http"', '"https"') | Set-Content .\virus-api-swagger.json
+Invoke-WebRequest -Uri 'https://api.cloudmersive.com/spam/v1/swagger.json' -OutFile '.\spam-api-swagger.json'
+(Get-Content .\spam-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\spam-api-swagger.json
+(Get-Content .\spam-api-swagger.json).replace('"http"', '"https"') | Set-Content .\spam-api-swagger.json
 
-java -jar ./openapi-generator-cli-7.12.0.jar generate -i virus-api-swagger.json -g csharp -o client -c packageconfig.json
+java -jar ./openapi-generator-cli-7.12.0.jar generate -i spam-api-swagger.json -g csharp -o client -c packageconfig.json
 
 ## (Get-Content ./client/src/api/ConvertDocumentApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertDocumentApi.js
 ## (Get-Content ./client/src/api/ConvertWebApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertWebApi.js
