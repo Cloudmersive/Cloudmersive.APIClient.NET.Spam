@@ -1,0 +1,30 @@
+﻿{
+    "packageName": "Cloudmersive.APIClient.NET.Spam",
+    "packageVersion": "4.0.1",
+
+
+    "packageTitle":       "Cloudmersive Spam Detection API Client",
+    "packageDescription": "Cloudmersive Spam Detection allows you to scan input for spam threats.  AI spam detection helps you to identify spam with high confidence.",
+    "packageAuthors":     "Cloudmersive LLC",
+    "packageCompany":     "Cloudmersive LLC",
+    "packageProjectUrl":  "https://cloudmersive.com/spam-api",
+    "packageUrl":  "https://cloudmersive.com/spam-api",
+    "packageIconUrl":     "https://cloudmersive.com/images/cmsdk.png",
+    "packageTags":        "ai spam detection cloudmersive",
+    "releaseNote":        "Change to HttpClient core",
+
+    "gitHost":   "github.com",
+    "gitUserId": "Cloudmersive",
+    "gitRepoId": "Cloudmersive.APIClient.NET.Spam",
+
+    "licenseId": "Apache-2.0",
+
+    "packageCopyright":          "Copyright © 2025 Cloudmersive, LLC.",
+
+    "packageGuid": "d3c2b345-9f50-438e-afdf-4494fbd7bd59",
+    "library": "restsharp",
+    "supportsFileParameters": true,
+    "targetFramework": "netstandard2.0",
+    "netCoreProjectFile": false
+  }
+  
