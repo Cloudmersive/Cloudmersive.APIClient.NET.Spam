@@ -1,0 +1,130 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "spamapi",
+    "description": "Easily and directly scan and block phishing security threats.",
+    "version": "v1"
+  },
+  "paths": {
+    "/spam/detect/text-string": {
+      "post": {
+        "tags": [
+          "SpamDetection"
+        ],
+        "summary": "Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Spam detection request",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionAdvancedRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/spam/detect/text-string/advanced": {
+      "post": {
+        "tags": [
+          "SpamDetection"
+        ],
+        "summary": "Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Spam detection request",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionAdvancedRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionAdvancedResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SpamDetectionAdvancedRequest": {
+      "description": "AI advanced spam detection request",
+      "type": "object",
+      "properties": {
+        "InputString": {
+          "description": "Input text string to detect spam against",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SpamDetectionAdvancedResponse": {
+      "description": "Result of detecting spam using AI",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if the result is not spam (clean), and false otherwise",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SpamDetectionResponse": {
+      "description": "Result of detecting spam using AI",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if the result is not spam (clean), and false otherwise",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "securityDefinitions": {
+    "Apikey": {
+      "type": "apiKey",
+      "name": "Apikey",
+      "in": "header",
+      "description": "Apikey"
+    }
+  },
+  "security": [
+    {
+      "Apikey": [ ]
+    }
+  ]
+}

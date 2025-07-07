@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Cloudmersive.APIClient.NET.Spam</AssemblyName>
+    <PackageId>Cloudmersive.APIClient.NET.Spam</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>Cloudmersive LLC</Authors>
+    <Company>Cloudmersive LLC</Company>
+    <AssemblyTitle>Cloudmersive Spam Detection API Client</AssemblyTitle>
+    <Description>Cloudmersive Spam Detection allows you to scan input for spam threats.  AI spam detection helps you to identify spam with high confidence.</Description>
+    <Copyright>Copyright © 2025 Cloudmersive, LLC.</Copyright>
+    <RootNamespace>Cloudmersive.APIClient.NET.Spam</RootNamespace>
+    <Version>4.0.1</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cloudmersive.APIClient.NET.Spam.xml</DocumentationFile>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.Spam.git</RepositoryUrl><PackageProjectUrl>https://cloudmersive.com/spam-api</PackageProjectUrl><PackageIconUrl>https://cloudmersive.com/images/cmsdk.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Change to HttpClient core</PackageReleaseNotes>
+    <PackageTags>ai spam detection cloudmersive</PackageTags>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="112.0.0" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+</Project>
