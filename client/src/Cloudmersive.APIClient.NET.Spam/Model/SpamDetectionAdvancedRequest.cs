@@ -28,13 +28,13 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
     /// AI advanced spam detection request
     /// </summary>
     [DataContract]
-    public partial class SpamDetectionAdvancedRequest : Dictionary<String, >,  IEquatable<SpamDetectionAdvancedRequest>, IValidatableObject
+    public partial class SpamDetectionAdvancedRequest :  IEquatable<SpamDetectionAdvancedRequest>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SpamDetectionAdvancedRequest" /> class.
         /// </summary>
         /// <param name="inputString">Input text string to detect spam against.</param>
-        public SpamDetectionAdvancedRequest(string inputString = default(string)) : base()
+        public SpamDetectionAdvancedRequest(string inputString = default(string))
         {
             this.InputString = inputString;
         }
@@ -54,7 +54,6 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SpamDetectionAdvancedRequest {\n");
-            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  InputString: ").Append(InputString).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -64,7 +63,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -89,7 +88,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
             if (input == null)
                 return false;
 
-            return base.Equals(input) && 
+            return 
                 (
                     this.InputString == input.InputString ||
                     (this.InputString != null &&
@@ -105,7 +104,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = base.GetHashCode();
+                int hashCode = 41;
                 if (this.InputString != null)
                     hashCode = hashCode * 59 + this.InputString.GetHashCode();
                 return hashCode;
@@ -119,7 +118,6 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

@@ -88,8 +88,7 @@
           "description": "Input text string to detect spam against",
           "type": "string"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "SpamDetectionAdvancedResponse": {
       "description": "Result of detecting spam using AI",
@@ -99,8 +98,7 @@
           "description": "True if the result is not spam (clean), and false otherwise",
           "type": "boolean"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "SpamDetectionResponse": {
       "description": "Result of detecting spam using AI",
@@ -110,8 +108,7 @@
           "description": "True if the result is not spam (clean), and false otherwise",
           "type": "boolean"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "securityDefinitions": {
@@ -128,3 +125,4 @@
     }
   ]
 }
+
