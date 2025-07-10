@@ -8,7 +8,7 @@ Invoke-WebRequest -Uri 'https://api.cloudmersive.com/spam/v1/swagger.json' -OutF
 (Get-Content .\spam-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\spam-api-swagger.json
 (Get-Content .\spam-api-swagger.json).replace('"http"', '"https"') | Set-Content .\spam-api-swagger.json
 
-java -jar ./swagger-codegen-cli-2.4.45 generate -i spam-api-swagger.json -g csharp -o client -c packageconfig.json
+java -jar ./swagger-codegen-cli-2.4.45.jar generate -i spam-api-swagger.json -l csharp -o client -c packageconfig.json
 
 ## (Get-Content ./client/src/api/ConvertDocumentApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertDocumentApi.js
 ## (Get-Content ./client/src/api/ConvertWebApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertWebApi.js
@@ -17,15 +17,18 @@ java -jar ./swagger-codegen-cli-2.4.45 generate -i spam-api-swagger.json -g csha
 
 $csprojpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.Spam/Cloudmersive.APIClient.NET.Spam.csproj
 $csprojtestpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.Spam.Test/Cloudmersive.APIClient.NET.Spam.Test.csproj
-#$nuspecpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.nuspec
+$nuspecpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.Spam/Cloudmersive.APIClient.NET.Spam.nuspec
 $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.Spam.sln
 
 
-
+(Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Image Recognition and Processing APIs</title><licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<authors>$author$</authors>', "<authors>Cloudmersive</authors>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<owners>$author$</owners>', "<owners>Cloudmersive</owners>") | Set-Content $nuspecpath
 
 (Get-Content $csprojpath).replace('<RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.Spam.git</RepositoryUrl>', '<RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.Spam.git</RepositoryUrl><PackageProjectUrl>https://cloudmersive.com/spam-api</PackageProjectUrl><PackageIconUrl>https://cloudmersive.com/images/cmsdk.png</PackageIconUrl>') | Set-Content $csprojpath
 
-
+(Get-Content $nuspecpath).replace('<!-- Authors contain text that appears directly on the gallery -->', "<iconUrl>https://cloudmersive.com/images/cmsdk.png</iconUrl>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<dependencies>', "<projectUrl>https://cloudmersive.com/spam-api</projectUrl><dependencies>") | Set-Content $nuspecpath
 
 
 ./nuget.exe restore $csprojpath -SolutionDirectory ./client
@@ -35,11 +38,11 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.Spam.sln
 #C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe $slnpath /t:rebuild 
 $configuration = 'Release'
 
-dotnet build $slnpath -c $configuration
+#dotnet build $slnpath -c $configuration
 
 #$msbuild = Get-LatestMsBuild
 #& $msbuild $slnpath /t:Rebuild /p:Configuration=$configuration
-
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe $slnpath /t:rebuild 
 
 
 & C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.APIClient.NET.Spam/bin/Debug/netstandard2.0/Cloudmersive.APIClient.NET.Spam.dll

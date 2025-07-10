@@ -1,6 +1,4 @@
 # Cloudmersive.APIClient.NET.Spam.Model.SpamDetectionAdvancedRequest
-AI advanced spam detection request
-
 ## Properties
 
 Name | Type | Description | Notes
