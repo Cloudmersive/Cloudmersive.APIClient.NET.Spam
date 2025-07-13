@@ -14,13 +14,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
+              $ref: '#/components/schemas/SpamDetectionRequest'
           text/json:
             schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
+              $ref: '#/components/schemas/SpamDetectionRequest'
           application/*+json:
             schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
+              $ref: '#/components/schemas/SpamDetectionRequest'
         description: Spam detection request
         required: false
       responses:
@@ -38,7 +38,8 @@ paths:
           description: OK
       summary: "Perform AI spam detection and classification against input text string.\
         \  Analyzes input content as well as embedded URLs with AI deep learnign to\
-        \ detect spam, phishing and other unsafe content."
+        \ detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending\
+        \ on model selected."
       tags:
       - SpamDetection
       x-codegen-request-body-name: body
@@ -72,7 +73,8 @@ paths:
           description: OK
       summary: "Perform advanced AI spam detection and classification against input\
         \ text string.  Analyzes input content as well as embedded URLs with AI deep\
-        \ learnign to detect spam, phishing and other unsafe content."
+        \ learnign to detect spam, phishing and other unsafe content.  Uses 25-100\
+        \ API calls depending on model selected."
       tags:
       - SpamDetection
       x-codegen-request-body-name: body
@@ -82,21 +84,73 @@ components:
       additionalProperties: false
       description: AI advanced spam detection request
       example:
+        AllowPhishing: true
         InputString: InputString
+        Model: Model
+        AllowUnsolicitedSales: true
+        AllowPromotionalContent: true
       properties:
         InputString:
           description: Input text string to detect spam against
           type: string
+        Model:
+          description: "Optional: Specify which AI model to use.  Possible choices\
+            \ are Normal and Advanced.  Default is Advanced."
+          type: string
+        AllowUnsolicitedSales:
+          description: "True if unsolicited sales should be allowed, false otherwise"
+          type: boolean
+        AllowPromotionalContent:
+          description: "True if promotional content should be allowed, false otherwise"
+          type: boolean
+        AllowPhishing:
+          description: "True if phishing should be allowed, false otherwise"
+          type: boolean
       type: object
     SpamDetectionAdvancedResponse:
       additionalProperties: false
       description: Result of detecting spam using AI
       example:
+        ContainsSpam: true
+        ContainsUnsolicitedSales: true
+        ContainsPhishingAttempt: true
         CleanResult: true
+        ContainsPromotionalContent: true
       properties:
         CleanResult:
           description: "True if the result is not spam (clean), and false otherwise"
           type: boolean
+        ContainsSpam:
+          description: "True if the input text contains spam, false otherwise"
+          type: boolean
+        ContainsUnsolicitedSales:
+          description: "True if the input text contains unsolicited sales, false otherwise"
+          type: boolean
+        ContainsPromotionalContent:
+          description: "True if the input text contains promotional content, false\
+            \ otherwise"
+          type: boolean
+        ContainsPhishingAttempt:
+          description: "True if the input text contains a phishing attempt, false\
+            \ otherwise"
+          type: boolean
+      type: object
+    SpamDetectionRequest:
+      additionalProperties: false
+      description: AI spam detection request
+      example:
+        InputString: Get free crypto now!!!
+        Model: Advanced
+      properties:
+        InputString:
+          description: Input text string to detect spam against
+          example: Get free crypto now!!!
+          type: string
+        Model:
+          description: "Optional: Specify which AI model to use.  Possible choices\
+            \ are Normal and Advanced.  Default is Advanced."
+          example: Advanced
+          type: string
       type: object
     SpamDetectionResponse:
       additionalProperties: false

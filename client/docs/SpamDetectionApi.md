@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**SpamDetectTextStringAdvancedPost**](SpamDetectionApi.md#spamdetecttextstringadvancedpost) | **POST** /spam/detect/text-string/advanced | Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. |
-| [**SpamDetectTextStringPost**](SpamDetectionApi.md#spamdetecttextstringpost) | **POST** /spam/detect/text-string | Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. |
+| [**SpamDetectTextStringAdvancedPost**](SpamDetectionApi.md#spamdetecttextstringadvancedpost) | **POST** /spam/detect/text-string/advanced | Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. |
+| [**SpamDetectTextStringPost**](SpamDetectionApi.md#spamdetecttextstringpost) | **POST** /spam/detect/text-string | Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected. |
 
 <a id="spamdetecttextstringadvancedpost"></a>
 # **SpamDetectTextStringAdvancedPost**
 > SpamDetectionAdvancedResponse SpamDetectTextStringAdvancedPost (SpamDetectionAdvancedRequest body = null)
 
-Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
 
 ### Example
 ```csharp
@@ -39,7 +39,7 @@ namespace Example
 
             try
             {
-                // Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+                // Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
                 SpamDetectionAdvancedResponse result = apiInstance.SpamDetectTextStringAdvancedPost(body);
                 Debug.WriteLine(result);
             }
@@ -60,7 +60,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+    // Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
     ApiResponse<SpamDetectionAdvancedResponse> response = apiInstance.SpamDetectTextStringAdvancedPostWithHttpInfo(body);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -103,9 +103,9 @@ catch (ApiException e)
 
 <a id="spamdetecttextstringpost"></a>
 # **SpamDetectTextStringPost**
-> SpamDetectionResponse SpamDetectTextStringPost (SpamDetectionAdvancedRequest body = null)
+> SpamDetectionResponse SpamDetectTextStringPost (SpamDetectionRequest body = null)
 
-Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.
 
 ### Example
 ```csharp
@@ -129,11 +129,11 @@ namespace Example
             // config.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new SpamDetectionApi(config);
-            var body = new SpamDetectionAdvancedRequest(); // SpamDetectionAdvancedRequest | Spam detection request (optional) 
+            var body = new SpamDetectionRequest(); // SpamDetectionRequest | Spam detection request (optional) 
 
             try
             {
-                // Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+                // Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.
                 SpamDetectionResponse result = apiInstance.SpamDetectTextStringPost(body);
                 Debug.WriteLine(result);
             }
@@ -154,7 +154,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+    // Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.
     ApiResponse<SpamDetectionResponse> response = apiInstance.SpamDetectTextStringPostWithHttpInfo(body);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -172,7 +172,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | [**SpamDetectionAdvancedRequest**](SpamDetectionAdvancedRequest.md) | Spam detection request | [optional]  |
+| **body** | [**SpamDetectionRequest**](SpamDetectionRequest.md) | Spam detection request | [optional]  |
 
 ### Return type
 

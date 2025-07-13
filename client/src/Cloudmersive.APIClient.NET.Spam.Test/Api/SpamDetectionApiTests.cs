@@ -73,7 +73,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Api
         public void SpamDetectTextStringPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //SpamDetectionAdvancedRequest body = null;
+            //SpamDetectionRequest body = null;
             //var response = instance.SpamDetectTextStringPost(body);
             //Assert.IsType<SpamDetectionResponse>(response);
         }

@@ -26,32 +26,29 @@ using OpenAPIDateConverter = Cloudmersive.APIClient.NET.Spam.Client.OpenAPIDateC
 namespace Cloudmersive.APIClient.NET.Spam.Model
 {
     /// <summary>
-    /// AI advanced spam detection request
+    /// AI spam detection request
     /// </summary>
-    [DataContract(Name = "SpamDetectionAdvancedRequest")]
-    public partial class SpamDetectionAdvancedRequest : IValidatableObject
+    [DataContract(Name = "SpamDetectionRequest")]
+    public partial class SpamDetectionRequest : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpamDetectionAdvancedRequest" /> class.
+        /// Initializes a new instance of the <see cref="SpamDetectionRequest" /> class.
         /// </summary>
         /// <param name="inputString">Input text string to detect spam against.</param>
         /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced..</param>
-        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise.</param>
-        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise.</param>
-        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise.</param>
-        public SpamDetectionAdvancedRequest(string inputString = default(string), string model = default(string), bool allowUnsolicitedSales = default(bool), bool allowPromotionalContent = default(bool), bool allowPhishing = default(bool))
+        public SpamDetectionRequest(string inputString = default(string), string model = default(string))
         {
             this.InputString = inputString;
             this.Model = model;
-            this.AllowUnsolicitedSales = allowUnsolicitedSales;
-            this.AllowPromotionalContent = allowPromotionalContent;
-            this.AllowPhishing = allowPhishing;
         }
 
         /// <summary>
         /// Input text string to detect spam against
         /// </summary>
         /// <value>Input text string to detect spam against</value>
+        /*
+        <example>Get free crypto now!!!</example>
+        */
         [DataMember(Name = "InputString", EmitDefaultValue = false)]
         public string InputString { get; set; }
 
@@ -59,29 +56,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         /// Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.
         /// </summary>
         /// <value>Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.</value>
+        /*
+        <example>Advanced</example>
+        */
         [DataMember(Name = "Model", EmitDefaultValue = false)]
         public string Model { get; set; }
-
-        /// <summary>
-        /// True if unsolicited sales should be allowed, false otherwise
-        /// </summary>
-        /// <value>True if unsolicited sales should be allowed, false otherwise</value>
-        [DataMember(Name = "AllowUnsolicitedSales", EmitDefaultValue = true)]
-        public bool AllowUnsolicitedSales { get; set; }
-
-        /// <summary>
-        /// True if promotional content should be allowed, false otherwise
-        /// </summary>
-        /// <value>True if promotional content should be allowed, false otherwise</value>
-        [DataMember(Name = "AllowPromotionalContent", EmitDefaultValue = true)]
-        public bool AllowPromotionalContent { get; set; }
-
-        /// <summary>
-        /// True if phishing should be allowed, false otherwise
-        /// </summary>
-        /// <value>True if phishing should be allowed, false otherwise</value>
-        [DataMember(Name = "AllowPhishing", EmitDefaultValue = true)]
-        public bool AllowPhishing { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,12 +69,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SpamDetectionAdvancedRequest {\n");
+            sb.Append("class SpamDetectionRequest {\n");
             sb.Append("  InputString: ").Append(InputString).Append("\n");
             sb.Append("  Model: ").Append(Model).Append("\n");
-            sb.Append("  AllowUnsolicitedSales: ").Append(AllowUnsolicitedSales).Append("\n");
-            sb.Append("  AllowPromotionalContent: ").Append(AllowPromotionalContent).Append("\n");
-            sb.Append("  AllowPhishing: ").Append(AllowPhishing).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

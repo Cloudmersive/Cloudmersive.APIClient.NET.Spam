@@ -62,5 +62,41 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Model
         {
             // TODO unit test for the property 'InputString'
         }
+
+        /// <summary>
+        /// Test the property 'Model'
+        /// </summary>
+        [Fact]
+        public void ModelTest()
+        {
+            // TODO unit test for the property 'Model'
+        }
+
+        /// <summary>
+        /// Test the property 'AllowUnsolicitedSales'
+        /// </summary>
+        [Fact]
+        public void AllowUnsolicitedSalesTest()
+        {
+            // TODO unit test for the property 'AllowUnsolicitedSales'
+        }
+
+        /// <summary>
+        /// Test the property 'AllowPromotionalContent'
+        /// </summary>
+        [Fact]
+        public void AllowPromotionalContentTest()
+        {
+            // TODO unit test for the property 'AllowPromotionalContent'
+        }
+
+        /// <summary>
+        /// Test the property 'AllowPhishing'
+        /// </summary>
+        [Fact]
+        public void AllowPhishingTest()
+        {
+            // TODO unit test for the property 'AllowPhishing'
+        }
     }
 }
