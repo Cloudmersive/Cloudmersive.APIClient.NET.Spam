@@ -22,7 +22,7 @@
         <description>A library generated from a Swagger doc</description>
 
         <!-- Dependencies are automatically installed when the package is installed -->
-        <projectUrl>https://cloudmersive.com/spam-api</projectUrl><dependencies>
+        <projectUrl>https://www.cloudmersive.com/spam-detection-api</projectUrl><dependencies>
 
             <dependency id="NewtonSoft.Json" version="10.0.3" />
             <dependency id="JsonSubTypes" version="1.2.0" />

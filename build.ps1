@@ -41,7 +41,7 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.Spam.sln
 (Get-Content $csprojpath).replace('<RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.Spam.git</RepositoryUrl>', '<RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.Spam.git</RepositoryUrl><PackageProjectUrl>https://cloudmersive.com/spam-api</PackageProjectUrl><PackageIconUrl>https://cloudmersive.com/images/cmsdk.png</PackageIconUrl>') | Set-Content $csprojpath
 
 (Get-Content $nuspecpath).replace('<!-- Authors contain text that appears directly on the gallery -->', "<iconUrl>https://cloudmersive.com/images/cmsdk.png</iconUrl>") | Set-Content $nuspecpath
-(Get-Content $nuspecpath).replace('<dependencies>', "<projectUrl>https://cloudmersive.com/spam-api</projectUrl><dependencies>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<dependencies>', "<projectUrl>https://www.cloudmersive.com/spam-detection-api</projectUrl><dependencies>") | Set-Content $nuspecpath
 
 
 # RestSharp 106.6.10 - Core Project
