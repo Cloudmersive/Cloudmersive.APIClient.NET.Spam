@@ -25,7 +25,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -36,7 +36,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         SpamDetectionAdvancedResponse SpamDetectTextStringAdvancedPost (SpamDetectionAdvancedRequest body = null);
 
         /// <summary>
-        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -46,7 +46,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <returns>ApiResponse of SpamDetectionAdvancedResponse</returns>
         ApiResponse<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostWithHttpInfo (SpamDetectionAdvancedRequest body = null);
         /// <summary>
-        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -54,10 +54,10 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
         /// <returns>SpamDetectionResponse</returns>
-        SpamDetectionResponse SpamDetectTextStringPost (SpamDetectionAdvancedRequest body = null);
+        SpamDetectionResponse SpamDetectTextStringPost (SpamDetectionRequest body = null);
 
         /// <summary>
-        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -65,11 +65,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
         /// <returns>ApiResponse of SpamDetectionResponse</returns>
-        ApiResponse<SpamDetectionResponse> SpamDetectTextStringPostWithHttpInfo (SpamDetectionAdvancedRequest body = null);
+        ApiResponse<SpamDetectionResponse> SpamDetectTextStringPostWithHttpInfo (SpamDetectionRequest body = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -80,7 +80,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostAsync (SpamDetectionAdvancedRequest body = null);
 
         /// <summary>
-        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -90,7 +90,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <returns>Task of ApiResponse (SpamDetectionAdvancedResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectTextStringAdvancedPostAsyncWithHttpInfo (SpamDetectionAdvancedRequest body = null);
         /// <summary>
-        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -98,10 +98,10 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
         /// <returns>Task of SpamDetectionResponse</returns>
-        System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectTextStringPostAsync (SpamDetectionAdvancedRequest body = null);
+        System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectTextStringPostAsync (SpamDetectionRequest body = null);
 
         /// <summary>
-        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.
+        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.
         /// </summary>
         /// <remarks>
         /// 
@@ -109,7 +109,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
         /// <returns>Task of ApiResponse (SpamDetectionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectTextStringPostAsyncWithHttpInfo (SpamDetectionAdvancedRequest body = null);
+        System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectTextStringPostAsyncWithHttpInfo (SpamDetectionRequest body = null);
         #endregion Asynchronous Operations
     }
 
@@ -211,7 +211,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         }
 
         /// <summary>
-        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. 
+        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
@@ -223,7 +223,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         }
 
         /// <summary>
-        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. 
+        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
@@ -291,7 +291,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         }
 
         /// <summary>
-        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. 
+        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
@@ -304,7 +304,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         }
 
         /// <summary>
-        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. 
+        /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
@@ -372,24 +372,24 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         }
 
         /// <summary>
-        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. 
+        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
         /// <returns>SpamDetectionResponse</returns>
-        public SpamDetectionResponse SpamDetectTextStringPost (SpamDetectionAdvancedRequest body = null)
+        public SpamDetectionResponse SpamDetectTextStringPost (SpamDetectionRequest body = null)
         {
              ApiResponse<SpamDetectionResponse> localVarResponse = SpamDetectTextStringPostWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. 
+        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
         /// <returns>ApiResponse of SpamDetectionResponse</returns>
-        public ApiResponse< SpamDetectionResponse > SpamDetectTextStringPostWithHttpInfo (SpamDetectionAdvancedRequest body = null)
+        public ApiResponse< SpamDetectionResponse > SpamDetectTextStringPostWithHttpInfo (SpamDetectionRequest body = null)
         {
 
             var localVarPath = "/spam/detect/text-string";
@@ -452,12 +452,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         }
 
         /// <summary>
-        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. 
+        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
         /// <returns>Task of SpamDetectionResponse</returns>
-        public async System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectTextStringPostAsync (SpamDetectionAdvancedRequest body = null)
+        public async System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectTextStringPostAsync (SpamDetectionRequest body = null)
         {
              ApiResponse<SpamDetectionResponse> localVarResponse = await SpamDetectTextStringPostAsyncWithHttpInfo(body);
              return localVarResponse.Data;
@@ -465,12 +465,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         }
 
         /// <summary>
-        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content. 
+        /// Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
         /// <returns>Task of ApiResponse (SpamDetectionResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectTextStringPostAsyncWithHttpInfo (SpamDetectionAdvancedRequest body = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectTextStringPostAsyncWithHttpInfo (SpamDetectionRequest body = null)
         {
 
             var localVarPath = "/spam/detect/text-string";

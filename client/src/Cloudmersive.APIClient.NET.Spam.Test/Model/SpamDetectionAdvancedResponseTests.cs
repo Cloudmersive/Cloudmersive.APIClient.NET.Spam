@@ -74,6 +74,38 @@ namespace Cloudmersive.APIClient.NET.Spam.Test
         {
             // TODO unit test for the property 'CleanResult'
         }
+        /// <summary>
+        /// Test the property 'ContainsSpam'
+        /// </summary>
+        [Test]
+        public void ContainsSpamTest()
+        {
+            // TODO unit test for the property 'ContainsSpam'
+        }
+        /// <summary>
+        /// Test the property 'ContainsUnsolicitedSales'
+        /// </summary>
+        [Test]
+        public void ContainsUnsolicitedSalesTest()
+        {
+            // TODO unit test for the property 'ContainsUnsolicitedSales'
+        }
+        /// <summary>
+        /// Test the property 'ContainsPromotionalContent'
+        /// </summary>
+        [Test]
+        public void ContainsPromotionalContentTest()
+        {
+            // TODO unit test for the property 'ContainsPromotionalContent'
+        }
+        /// <summary>
+        /// Test the property 'ContainsPhishingAttempt'
+        /// </summary>
+        [Test]
+        public void ContainsPhishingAttemptTest()
+        {
+            // TODO unit test for the property 'ContainsPhishingAttempt'
+        }
 
     }
 

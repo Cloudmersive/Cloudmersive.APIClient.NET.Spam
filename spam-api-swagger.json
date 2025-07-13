@@ -11,7 +11,7 @@
         "tags": [
           "SpamDetection"
         ],
-        "summary": "Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.",
+        "summary": "Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.",
         "consumes": [
           "application/json",
           "text/json",
@@ -28,7 +28,7 @@
             "name": "body",
             "description": "Spam detection request",
             "schema": {
-              "$ref": "#/definitions/SpamDetectionAdvancedRequest"
+              "$ref": "#/definitions/SpamDetectionRequest"
             }
           }
         ],
@@ -47,7 +47,7 @@
         "tags": [
           "SpamDetection"
         ],
-        "summary": "Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.",
+        "summary": "Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.",
         "consumes": [
           "application/json",
           "text/json",
@@ -87,6 +87,22 @@
         "InputString": {
           "description": "Input text string to detect spam against",
           "type": "string"
+        },
+        "Model": {
+          "description": "Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.",
+          "type": "string"
+        },
+        "AllowUnsolicitedSales": {
+          "description": "True if unsolicited sales should be allowed, false otherwise",
+          "type": "boolean"
+        },
+        "AllowPromotionalContent": {
+          "description": "True if promotional content should be allowed, false otherwise",
+          "type": "boolean"
+        },
+        "AllowPhishing": {
+          "description": "True if phishing should be allowed, false otherwise",
+          "type": "boolean"
         }
       }
     },
@@ -97,6 +113,38 @@
         "CleanResult": {
           "description": "True if the result is not spam (clean), and false otherwise",
           "type": "boolean"
+        },
+        "ContainsSpam": {
+          "description": "True if the input text contains spam, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsUnsolicitedSales": {
+          "description": "True if the input text contains unsolicited sales, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsPromotionalContent": {
+          "description": "True if the input text contains promotional content, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsPhishingAttempt": {
+          "description": "True if the input text contains a phishing attempt, false otherwise",
+          "type": "boolean"
+        }
+      }
+    },
+    "SpamDetectionRequest": {
+      "description": "AI spam detection request",
+      "type": "object",
+      "properties": {
+        "InputString": {
+          "description": "Input text string to detect spam against",
+          "type": "string",
+          "example": "Get free crypto now!!!"
+        },
+        "Model": {
+          "description": "Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.",
+          "type": "string",
+          "example": "Advanced"
         }
       }
     },
