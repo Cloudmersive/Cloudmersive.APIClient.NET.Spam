@@ -40,8 +40,8 @@ dotnet build $slnpath -c $configuration
 
 
 
-& C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.APIClient.NET.Spam/bin/Debug/netstandard2.0/Cloudmersive.APIClient.NET.Spam.dll
-& C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.APIClient.NET.Spam/bin/Release/netstandard2.0/Cloudmersive.APIClient.NET.Spam.dll
+#& C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.APIClient.NET.Spam/bin/Debug/netstandard2.0/Cloudmersive.APIClient.NET.Spam.dll
+#& C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.APIClient.NET.Spam/bin/Release/netstandard2.0/Cloudmersive.APIClient.NET.Spam.dll
 
 Write-Host "Packing..."
 
