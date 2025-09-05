@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  description: Easily and directly scan and block phishing security threats.
+  description: Easily and directly scan and block spam security threats in input.
   title: spamapi
   version: v1
 servers:

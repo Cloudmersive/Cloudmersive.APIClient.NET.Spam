@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "spamapi",
-    "description": "Easily and directly scan and block phishing security threats.",
+    "description": "Easily and directly scan and block spam security threats in input.",
     "version": "v1"
   },
   "paths": {
