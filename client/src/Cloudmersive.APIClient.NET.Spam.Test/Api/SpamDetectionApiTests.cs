@@ -55,6 +55,35 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Api
         }
 
         /// <summary>
+        /// Test SpamDetectFileAdvancedPost
+        /// </summary>
+        [Fact]
+        public void SpamDetectFileAdvancedPostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string model = null;
+            //bool? allowPhishing = null;
+            //bool? allowUnsolicitedSales = null;
+            //bool? allowPromotionalContent = null;
+            //System.IO.Stream inputFile = null;
+            //var response = instance.SpamDetectFileAdvancedPost(model, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
+            //Assert.IsType<SpamDetectionAdvancedResponse>(response);
+        }
+
+        /// <summary>
+        /// Test SpamDetectFilePost
+        /// </summary>
+        [Fact]
+        public void SpamDetectFilePostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string model = null;
+            //System.IO.Stream inputFile = null;
+            //var response = instance.SpamDetectFilePost(model, inputFile);
+            //Assert.IsType<SpamDetectionResponse>(response);
+        }
+
+        /// <summary>
         /// Test SpamDetectTextStringAdvancedPost
         /// </summary>
         [Fact]

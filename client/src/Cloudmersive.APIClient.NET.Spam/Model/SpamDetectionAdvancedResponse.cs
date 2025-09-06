@@ -35,17 +35,21 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         /// Initializes a new instance of the <see cref="SpamDetectionAdvancedResponse" /> class.
         /// </summary>
         /// <param name="cleanResult">True if the result is not spam (clean), and false otherwise.</param>
+        /// <param name="spamRiskLevel">Overall spam risk level between 0.0 and 1.0.</param>
         /// <param name="containsSpam">True if the input text contains spam, false otherwise.</param>
         /// <param name="containsUnsolicitedSales">True if the input text contains unsolicited sales, false otherwise.</param>
         /// <param name="containsPromotionalContent">True if the input text contains promotional content, false otherwise.</param>
         /// <param name="containsPhishingAttempt">True if the input text contains a phishing attempt, false otherwise.</param>
-        public SpamDetectionAdvancedResponse(bool cleanResult = default(bool), bool containsSpam = default(bool), bool containsUnsolicitedSales = default(bool), bool containsPromotionalContent = default(bool), bool containsPhishingAttempt = default(bool))
+        /// <param name="analysisRationale">Rationale for why the conclusion was formed.</param>
+        public SpamDetectionAdvancedResponse(bool cleanResult = default(bool), double spamRiskLevel = default(double), bool containsSpam = default(bool), bool containsUnsolicitedSales = default(bool), bool containsPromotionalContent = default(bool), bool containsPhishingAttempt = default(bool), string analysisRationale = default(string))
         {
             this.CleanResult = cleanResult;
+            this.SpamRiskLevel = spamRiskLevel;
             this.ContainsSpam = containsSpam;
             this.ContainsUnsolicitedSales = containsUnsolicitedSales;
             this.ContainsPromotionalContent = containsPromotionalContent;
             this.ContainsPhishingAttempt = containsPhishingAttempt;
+            this.AnalysisRationale = analysisRationale;
         }
 
         /// <summary>
@@ -54,6 +58,13 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         /// <value>True if the result is not spam (clean), and false otherwise</value>
         [DataMember(Name = "CleanResult", EmitDefaultValue = true)]
         public bool CleanResult { get; set; }
+
+        /// <summary>
+        /// Overall spam risk level between 0.0 and 1.0
+        /// </summary>
+        /// <value>Overall spam risk level between 0.0 and 1.0</value>
+        [DataMember(Name = "SpamRiskLevel", EmitDefaultValue = false)]
+        public double SpamRiskLevel { get; set; }
 
         /// <summary>
         /// True if the input text contains spam, false otherwise
@@ -84,6 +95,13 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         public bool ContainsPhishingAttempt { get; set; }
 
         /// <summary>
+        /// Rationale for why the conclusion was formed
+        /// </summary>
+        /// <value>Rationale for why the conclusion was formed</value>
+        [DataMember(Name = "AnalysisRationale", EmitDefaultValue = false)]
+        public string AnalysisRationale { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,10 +110,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SpamDetectionAdvancedResponse {\n");
             sb.Append("  CleanResult: ").Append(CleanResult).Append("\n");
+            sb.Append("  SpamRiskLevel: ").Append(SpamRiskLevel).Append("\n");
             sb.Append("  ContainsSpam: ").Append(ContainsSpam).Append("\n");
             sb.Append("  ContainsUnsolicitedSales: ").Append(ContainsUnsolicitedSales).Append("\n");
             sb.Append("  ContainsPromotionalContent: ").Append(ContainsPromotionalContent).Append("\n");
             sb.Append("  ContainsPhishingAttempt: ").Append(ContainsPhishingAttempt).Append("\n");
+            sb.Append("  AnalysisRationale: ").Append(AnalysisRationale).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -64,6 +64,15 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'SpamRiskLevel'
+        /// </summary>
+        [Fact]
+        public void SpamRiskLevelTest()
+        {
+            // TODO unit test for the property 'SpamRiskLevel'
+        }
+
+        /// <summary>
         /// Test the property 'ContainsSpam'
         /// </summary>
         [Fact]
@@ -97,6 +106,15 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Model
         public void ContainsPhishingAttemptTest()
         {
             // TODO unit test for the property 'ContainsPhishingAttempt'
+        }
+
+        /// <summary>
+        /// Test the property 'AnalysisRationale'
+        /// </summary>
+        [Fact]
+        public void AnalysisRationaleTest()
+        {
+            // TODO unit test for the property 'AnalysisRationale'
         }
     }
 }

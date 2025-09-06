@@ -43,6 +43,39 @@ paths:
       tags:
       - SpamDetection
       x-codegen-request-body-name: body
+  /spam/detect/file:
+    post:
+      parameters:
+      - description: Model to use; default setting is Advanced
+        in: header
+        name: model
+        schema:
+          default: Advanced
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/_spam_detect_file_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionResponse'
+          description: OK
+      summary: "Perform AI spam detection and classification on an input image or\
+        \ document (PDF or DOCX).  Analyzes input content as well as embedded URLs\
+        \ with AI deep learnign to detect spam, phishing and other unsafe content.\
+        \  Uses 100-125 API calls depending on model selected."
+      tags:
+      - SpamDetection
   /spam/detect/text-string/advanced:
     post:
       requestBody:
@@ -78,6 +111,53 @@ paths:
       tags:
       - SpamDetection
       x-codegen-request-body-name: body
+  /spam/detect/file/advanced:
+    post:
+      parameters:
+      - in: header
+        name: model
+        schema:
+          default: Advanced
+          type: string
+      - in: header
+        name: allowPhishing
+        schema:
+          default: false
+          type: boolean
+      - in: header
+        name: allowUnsolicitedSales
+        schema:
+          default: false
+          type: boolean
+      - in: header
+        name: allowPromotionalContent
+        schema:
+          default: false
+          type: boolean
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/_spam_detect_file_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
+          description: OK
+      summary: "Perform advanced AI spam detection and classification against input\
+        \ text string.  Analyzes input content as well as embedded URLs with AI deep\
+        \ learnign to detect spam, phishing and other unsafe content.  Uses 25-100\
+        \ API calls depending on model selected."
+      tags:
+      - SpamDetection
 components:
   schemas:
     SpamDetectionAdvancedRequest:
@@ -114,12 +194,18 @@ components:
         ContainsSpam: true
         ContainsUnsolicitedSales: true
         ContainsPhishingAttempt: true
+        SpamRiskLevel: 0.8008281904610115
+        AnalysisRationale: AnalysisRationale
         CleanResult: true
         ContainsPromotionalContent: true
       properties:
         CleanResult:
           description: "True if the result is not spam (clean), and false otherwise"
           type: boolean
+        SpamRiskLevel:
+          description: Overall spam risk level between 0.0 and 1.0
+          format: double
+          type: number
         ContainsSpam:
           description: "True if the input text contains spam, false otherwise"
           type: boolean
@@ -134,6 +220,9 @@ components:
           description: "True if the input text contains a phishing attempt, false\
             \ otherwise"
           type: boolean
+        AnalysisRationale:
+          description: Rationale for why the conclusion was formed
+          type: string
       type: object
     SpamDetectionRequest:
       additionalProperties: false
@@ -161,6 +250,12 @@ components:
         CleanResult:
           description: "True if the result is not spam (clean), and false otherwise"
           type: boolean
+      type: object
+    _spam_detect_file_post_request:
+      properties:
+        inputFile:
+          format: binary
+          type: string
       type: object
   securitySchemes:
     Apikey:

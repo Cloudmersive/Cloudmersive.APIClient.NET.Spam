@@ -42,6 +42,44 @@
         }
       }
     },
+    "/spam/detect/file": {
+      "post": {
+        "tags": [
+          "SpamDetection"
+        ],
+        "summary": "Perform AI spam detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "model",
+            "description": "Model to use; default setting is Advanced",
+            "type": "string",
+            "default": "Advanced"
+          },
+          {
+            "in": "formData",
+            "name": "inputFile",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionResponse"
+            }
+          }
+        }
+      }
+    },
     "/spam/detect/text-string/advanced": {
       "post": {
         "tags": [
@@ -66,6 +104,61 @@
             "schema": {
               "$ref": "#/definitions/SpamDetectionAdvancedRequest"
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionAdvancedResponse"
+            }
+          }
+        }
+      }
+    },
+    "/spam/detect/file/advanced": {
+      "post": {
+        "tags": [
+          "SpamDetection"
+        ],
+        "summary": "Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "model",
+            "type": "string",
+            "default": "Advanced"
+          },
+          {
+            "in": "header",
+            "name": "allowPhishing",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "in": "header",
+            "name": "allowUnsolicitedSales",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "in": "header",
+            "name": "allowPromotionalContent",
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "in": "formData",
+            "name": "inputFile",
+            "type": "file"
           }
         ],
         "responses": {
@@ -115,6 +208,11 @@
           "description": "True if the result is not spam (clean), and false otherwise",
           "type": "boolean"
         },
+        "SpamRiskLevel": {
+          "format": "double",
+          "description": "Overall spam risk level between 0.0 and 1.0",
+          "type": "number"
+        },
         "ContainsSpam": {
           "description": "True if the input text contains spam, false otherwise",
           "type": "boolean"
@@ -130,6 +228,10 @@
         "ContainsPhishingAttempt": {
           "description": "True if the input text contains a phishing attempt, false otherwise",
           "type": "boolean"
+        },
+        "AnalysisRationale": {
+          "description": "Rationale for why the conclusion was formed",
+          "type": "string"
         }
       },
       "additionalProperties": false
