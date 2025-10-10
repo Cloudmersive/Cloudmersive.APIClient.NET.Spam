@@ -77,6 +77,26 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <returns>ApiResponse of SpamDetectionResponse</returns>
         ApiResponse<SpamDetectionResponse> SpamDetectFilePostWithHttpInfo(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
         /// <summary>
+        /// Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Spam detection request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>SpamDetectionFormSubmissionAdvancedResponse</returns>
+        SpamDetectionFormSubmissionAdvancedResponse SpamDetectFormSubmissionAdvancedPost(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0);
+
+        /// <summary>
+        /// Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Spam detection request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of SpamDetectionFormSubmissionAdvancedResponse</returns>
+        ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostWithHttpInfo(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0);
+        /// <summary>
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
@@ -185,6 +205,31 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectFilePostWithHttpInfoAsync(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Spam detection request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SpamDetectionFormSubmissionAdvancedResponse</returns>
+        System.Threading.Tasks.Task<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Spam detection request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SpamDetectionFormSubmissionAdvancedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SpamDetectionFormSubmissionAdvancedResponse>> SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
@@ -716,6 +761,159 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectFilePost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Spam detection request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>SpamDetectionFormSubmissionAdvancedResponse</returns>
+        public SpamDetectionFormSubmissionAdvancedResponse SpamDetectFormSubmissionAdvancedPost(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> localVarResponse = SpamDetectFormSubmissionAdvancedPostWithHttpInfo(body);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Spam detection request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of SpamDetectionFormSubmissionAdvancedResponse</returns>
+        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostWithHttpInfo(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0)
+        {
+            Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectFormSubmissionAdvancedPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<SpamDetectionFormSubmissionAdvancedResponse>("/spam/detect/form-submission/advanced", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SpamDetectFormSubmissionAdvancedPost", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Spam detection request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SpamDetectionFormSubmissionAdvancedResponse</returns>
+        public async System.Threading.Tasks.Task<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> localVarResponse = await SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
+        /// </summary>
+        /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">Spam detection request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SpamDetectionFormSubmissionAdvancedResponse)</returns>
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse>> SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectFormSubmissionAdvancedPost";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (Apikey) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Apikey", this.Configuration.GetApiKeyWithPrefix("Apikey"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<SpamDetectionFormSubmissionAdvancedResponse>("/spam/detect/form-submission/advanced", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SpamDetectFormSubmissionAdvancedPost", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

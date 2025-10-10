@@ -111,6 +111,41 @@ paths:
       tags:
       - SpamDetection
       x-codegen-request-body-name: body
+  /spam/detect/form-submission/advanced:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
+        description: Spam detection request
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
+          description: OK
+      summary: "Perform advanced AI spam detection and classification against a form\
+        \ submission.  Analyzes form input content as well as embedded URLs with AI\
+        \ deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100\
+        \ API calls depending on model selected."
+      tags:
+      - SpamDetection
+      x-codegen-request-body-name: body
   /spam/detect/file/advanced:
     post:
       parameters:
@@ -160,34 +195,123 @@ paths:
       - SpamDetection
 components:
   schemas:
+    SpamDetectionAdvancedFormField:
+      additionalProperties: false
+      description: Form field submitted to run spam detection on
+      example:
+        FieldValue: "Acme, Inc."
+        FieldTitle: LeadCompanyName
+      properties:
+        FieldTitle:
+          description: Title of the field
+          example: LeadCompanyName
+          type: string
+        FieldValue:
+          description: Value of the field
+          example: "Acme, Inc."
+          type: string
+      type: object
+    SpamDetectionAdvancedFormSubmissionRequest:
+      additionalProperties: false
+      description: AI advanced spam detection request
+      example:
+        AllowPhishing: false
+        InputFormFields:
+        - FieldValue: "Acme, Inc."
+          FieldTitle: LeadCompanyName
+        - FieldValue: "Acme, Inc."
+          FieldTitle: LeadCompanyName
+        AllowUnsolicitedSales: false
+        AllowPromotionalContent: false
+      properties:
+        InputFormFields:
+          description: Form fields and values that you received in your form submission
+          items:
+            $ref: '#/components/schemas/SpamDetectionAdvancedFormField'
+          type: array
+        AllowUnsolicitedSales:
+          description: "True if unsolicited sales should be allowed, false otherwise"
+          example: false
+          type: boolean
+        AllowPromotionalContent:
+          description: "True if promotional content should be allowed, false otherwise"
+          example: false
+          type: boolean
+        AllowPhishing:
+          description: "True if phishing should be allowed, false otherwise"
+          example: false
+          type: boolean
+      type: object
     SpamDetectionAdvancedRequest:
       additionalProperties: false
       description: AI advanced spam detection request
       example:
-        AllowPhishing: true
-        InputString: InputString
-        Model: Model
-        AllowUnsolicitedSales: true
-        AllowPromotionalContent: true
+        AllowPhishing: false
+        InputString: Buy bitcoin now!!!!
+        Model: Advanced
+        AllowUnsolicitedSales: false
+        AllowPromotionalContent: false
       properties:
         InputString:
           description: Input text string to detect spam against
+          example: Buy bitcoin now!!!!
           type: string
         Model:
           description: "Optional: Specify which AI model to use.  Possible choices\
             \ are Normal and Advanced.  Default is Advanced."
+          example: Advanced
           type: string
         AllowUnsolicitedSales:
           description: "True if unsolicited sales should be allowed, false otherwise"
+          example: false
           type: boolean
         AllowPromotionalContent:
           description: "True if promotional content should be allowed, false otherwise"
+          example: false
           type: boolean
         AllowPhishing:
           description: "True if phishing should be allowed, false otherwise"
+          example: false
           type: boolean
       type: object
     SpamDetectionAdvancedResponse:
+      additionalProperties: false
+      description: Result of detecting spam using AI
+      example:
+        ContainsSpam: true
+        ContainsUnsolicitedSales: true
+        ContainsPhishingAttempt: true
+        SpamRiskLevel: 0.8008281904610115
+        AnalysisRationale: AnalysisRationale
+        CleanResult: true
+        ContainsPromotionalContent: true
+      properties:
+        CleanResult:
+          description: "True if the result is not spam (clean), and false otherwise"
+          type: boolean
+        SpamRiskLevel:
+          description: Overall spam risk level between 0.0 and 1.0
+          format: double
+          type: number
+        ContainsSpam:
+          description: "True if the input text contains spam, false otherwise"
+          type: boolean
+        ContainsUnsolicitedSales:
+          description: "True if the input text contains unsolicited sales, false otherwise"
+          type: boolean
+        ContainsPromotionalContent:
+          description: "True if the input text contains promotional content, false\
+            \ otherwise"
+          type: boolean
+        ContainsPhishingAttempt:
+          description: "True if the input text contains a phishing attempt, false\
+            \ otherwise"
+          type: boolean
+        AnalysisRationale:
+          description: Rationale for why the conclusion was formed
+          type: string
+      type: object
+    SpamDetectionFormSubmissionAdvancedResponse:
       additionalProperties: false
       description: Result of detecting spam using AI
       example:

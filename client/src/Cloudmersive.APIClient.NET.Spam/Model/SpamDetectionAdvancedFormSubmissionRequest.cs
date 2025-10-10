@@ -28,45 +28,30 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
     /// <summary>
     /// AI advanced spam detection request
     /// </summary>
-    [DataContract(Name = "SpamDetectionAdvancedRequest")]
-    public partial class SpamDetectionAdvancedRequest : IValidatableObject
+    [DataContract(Name = "SpamDetectionAdvancedFormSubmissionRequest")]
+    public partial class SpamDetectionAdvancedFormSubmissionRequest : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpamDetectionAdvancedRequest" /> class.
+        /// Initializes a new instance of the <see cref="SpamDetectionAdvancedFormSubmissionRequest" /> class.
         /// </summary>
-        /// <param name="inputString">Input text string to detect spam against.</param>
-        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced..</param>
+        /// <param name="inputFormFields">Form fields and values that you received in your form submission.</param>
         /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise.</param>
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise.</param>
         /// <param name="allowPhishing">True if phishing should be allowed, false otherwise.</param>
-        public SpamDetectionAdvancedRequest(string inputString = default(string), string model = default(string), bool allowUnsolicitedSales = default(bool), bool allowPromotionalContent = default(bool), bool allowPhishing = default(bool))
+        public SpamDetectionAdvancedFormSubmissionRequest(List<SpamDetectionAdvancedFormField> inputFormFields = default(List<SpamDetectionAdvancedFormField>), bool allowUnsolicitedSales = default(bool), bool allowPromotionalContent = default(bool), bool allowPhishing = default(bool))
         {
-            this.InputString = inputString;
-            this.Model = model;
+            this.InputFormFields = inputFormFields;
             this.AllowUnsolicitedSales = allowUnsolicitedSales;
             this.AllowPromotionalContent = allowPromotionalContent;
             this.AllowPhishing = allowPhishing;
         }
 
         /// <summary>
-        /// Input text string to detect spam against
+        /// Form fields and values that you received in your form submission
         /// </summary>
-        /// <value>Input text string to detect spam against</value>
-        /*
-        <example>Buy bitcoin now!!!!</example>
-        */
-        [DataMember(Name = "InputString", EmitDefaultValue = false)]
-        public string InputString { get; set; }
-
-        /// <summary>
-        /// Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.
-        /// </summary>
-        /// <value>Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.</value>
-        /*
-        <example>Advanced</example>
-        */
-        [DataMember(Name = "Model", EmitDefaultValue = false)]
-        public string Model { get; set; }
+        /// <value>Form fields and values that you received in your form submission</value>
+        [DataMember(Name = "InputFormFields", EmitDefaultValue = false)]
+        public List<SpamDetectionAdvancedFormField> InputFormFields { get; set; }
 
         /// <summary>
         /// True if unsolicited sales should be allowed, false otherwise
@@ -105,9 +90,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SpamDetectionAdvancedRequest {\n");
-            sb.Append("  InputString: ").Append(InputString).Append("\n");
-            sb.Append("  Model: ").Append(Model).Append("\n");
+            sb.Append("class SpamDetectionAdvancedFormSubmissionRequest {\n");
+            sb.Append("  InputFormFields: ").Append(InputFormFields).Append("\n");
             sb.Append("  AllowUnsolicitedSales: ").Append(AllowUnsolicitedSales).Append("\n");
             sb.Append("  AllowPromotionalContent: ").Append(AllowPromotionalContent).Append("\n");
             sb.Append("  AllowPhishing: ").Append(AllowPhishing).Append("\n");

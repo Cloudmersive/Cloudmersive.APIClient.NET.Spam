@@ -116,6 +116,42 @@
         }
       }
     },
+    "/spam/detect/form-submission/advanced": {
+      "post": {
+        "tags": [
+          "SpamDetection"
+        ],
+        "summary": "Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Spam detection request",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionAdvancedFormSubmissionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionFormSubmissionAdvancedResponse"
+            }
+          }
+        }
+      }
+    },
     "/spam/detect/file/advanced": {
       "post": {
         "tags": [
@@ -173,34 +209,121 @@
     }
   },
   "definitions": {
+    "SpamDetectionAdvancedFormField": {
+      "description": "Form field submitted to run spam detection on",
+      "type": "object",
+      "properties": {
+        "FieldTitle": {
+          "description": "Title of the field",
+          "type": "string",
+          "example": "LeadCompanyName"
+        },
+        "FieldValue": {
+          "description": "Value of the field",
+          "type": "string",
+          "example": "Acme, Inc."
+        }
+      },
+      "additionalProperties": false
+    },
+    "SpamDetectionAdvancedFormSubmissionRequest": {
+      "description": "AI advanced spam detection request",
+      "type": "object",
+      "properties": {
+        "InputFormFields": {
+          "description": "Form fields and values that you received in your form submission",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SpamDetectionAdvancedFormField"
+          }
+        },
+        "AllowUnsolicitedSales": {
+          "description": "True if unsolicited sales should be allowed, false otherwise",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPromotionalContent": {
+          "description": "True if promotional content should be allowed, false otherwise",
+          "type": "boolean",
+          "example": false
+        },
+        "AllowPhishing": {
+          "description": "True if phishing should be allowed, false otherwise",
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "additionalProperties": false
+    },
     "SpamDetectionAdvancedRequest": {
       "description": "AI advanced spam detection request",
       "type": "object",
       "properties": {
         "InputString": {
           "description": "Input text string to detect spam against",
-          "type": "string"
+          "type": "string",
+          "example": "Buy bitcoin now!!!!"
         },
         "Model": {
           "description": "Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.",
-          "type": "string"
+          "type": "string",
+          "example": "Advanced"
         },
         "AllowUnsolicitedSales": {
           "description": "True if unsolicited sales should be allowed, false otherwise",
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         },
         "AllowPromotionalContent": {
           "description": "True if promotional content should be allowed, false otherwise",
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         },
         "AllowPhishing": {
           "description": "True if phishing should be allowed, false otherwise",
-          "type": "boolean"
+          "type": "boolean",
+          "example": false
         }
       },
       "additionalProperties": false
     },
     "SpamDetectionAdvancedResponse": {
+      "description": "Result of detecting spam using AI",
+      "type": "object",
+      "properties": {
+        "CleanResult": {
+          "description": "True if the result is not spam (clean), and false otherwise",
+          "type": "boolean"
+        },
+        "SpamRiskLevel": {
+          "format": "double",
+          "description": "Overall spam risk level between 0.0 and 1.0",
+          "type": "number"
+        },
+        "ContainsSpam": {
+          "description": "True if the input text contains spam, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsUnsolicitedSales": {
+          "description": "True if the input text contains unsolicited sales, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsPromotionalContent": {
+          "description": "True if the input text contains promotional content, false otherwise",
+          "type": "boolean"
+        },
+        "ContainsPhishingAttempt": {
+          "description": "True if the input text contains a phishing attempt, false otherwise",
+          "type": "boolean"
+        },
+        "AnalysisRationale": {
+          "description": "Rationale for why the conclusion was formed",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SpamDetectionFormSubmissionAdvancedResponse": {
       "description": "Result of detecting spam using AI",
       "type": "object",
       "properties": {
