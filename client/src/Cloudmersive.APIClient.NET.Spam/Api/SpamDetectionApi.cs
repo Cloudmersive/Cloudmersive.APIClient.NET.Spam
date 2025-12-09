@@ -30,14 +30,15 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="model"> (optional, default to &quot;Advanced&quot;)</param>
-        /// <param name="allowPhishing"> (optional, default to false)</param>
-        /// <param name="allowUnsolicitedSales"> (optional, default to false)</param>
-        /// <param name="allowPromotionalContent"> (optional, default to false)</param>
+        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional, default to &quot;Advanced&quot;)</param>
+        /// <param name="preprocessing">Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional, default to &quot;Auto&quot;)</param>
+        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionAdvancedResponse</returns>
-        SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost(string model = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
+        SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
 
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
@@ -46,14 +47,15 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// 
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="model"> (optional, default to &quot;Advanced&quot;)</param>
-        /// <param name="allowPhishing"> (optional, default to false)</param>
-        /// <param name="allowUnsolicitedSales"> (optional, default to false)</param>
-        /// <param name="allowPromotionalContent"> (optional, default to false)</param>
+        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional, default to &quot;Advanced&quot;)</param>
+        /// <param name="preprocessing">Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional, default to &quot;Auto&quot;)</param>
+        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionAdvancedResponse</returns>
-        ApiResponse<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostWithHttpInfo(string model = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
+        ApiResponse<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostWithHttpInfo(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
         /// <summary>
         /// Perform AI spam detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
         /// </summary>
@@ -152,15 +154,16 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// 
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="model"> (optional, default to &quot;Advanced&quot;)</param>
-        /// <param name="allowPhishing"> (optional, default to false)</param>
-        /// <param name="allowUnsolicitedSales"> (optional, default to false)</param>
-        /// <param name="allowPromotionalContent"> (optional, default to false)</param>
+        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional, default to &quot;Advanced&quot;)</param>
+        /// <param name="preprocessing">Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional, default to &quot;Auto&quot;)</param>
+        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionAdvancedResponse</returns>
-        System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostAsync(string model = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
@@ -169,15 +172,16 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// 
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="model"> (optional, default to &quot;Advanced&quot;)</param>
-        /// <param name="allowPhishing"> (optional, default to false)</param>
-        /// <param name="allowUnsolicitedSales"> (optional, default to false)</param>
-        /// <param name="allowPromotionalContent"> (optional, default to false)</param>
+        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional, default to &quot;Advanced&quot;)</param>
+        /// <param name="preprocessing">Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional, default to &quot;Auto&quot;)</param>
+        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionAdvancedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectFileAdvancedPostWithHttpInfoAsync(string model = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectFileAdvancedPostWithHttpInfoAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Perform AI spam detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
         /// </summary>
@@ -404,16 +408,17 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="model"> (optional, default to &quot;Advanced&quot;)</param>
-        /// <param name="allowPhishing"> (optional, default to false)</param>
-        /// <param name="allowUnsolicitedSales"> (optional, default to false)</param>
-        /// <param name="allowPromotionalContent"> (optional, default to false)</param>
+        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional, default to &quot;Advanced&quot;)</param>
+        /// <param name="preprocessing">Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional, default to &quot;Auto&quot;)</param>
+        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionAdvancedResponse</returns>
-        public SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost(string model = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0)
+        public SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0)
         {
-            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = SpamDetectFileAdvancedPostWithHttpInfo(model, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = SpamDetectFileAdvancedPostWithHttpInfo(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
             return localVarResponse.Data;
         }
 
@@ -421,14 +426,15 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="model"> (optional, default to &quot;Advanced&quot;)</param>
-        /// <param name="allowPhishing"> (optional, default to false)</param>
-        /// <param name="allowUnsolicitedSales"> (optional, default to false)</param>
-        /// <param name="allowPromotionalContent"> (optional, default to false)</param>
+        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional, default to &quot;Advanced&quot;)</param>
+        /// <param name="preprocessing">Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional, default to &quot;Auto&quot;)</param>
+        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionAdvancedResponse</returns>
-        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostWithHttpInfo(string model = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0)
+        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostWithHttpInfo(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0)
         {
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
 
@@ -459,6 +465,10 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             if (model != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("model", Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.ParameterToString(model)); // header parameter
+            }
+            if (preprocessing != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("preprocessing", Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.ParameterToString(preprocessing)); // header parameter
             }
             if (allowPhishing != null)
             {
@@ -504,17 +514,18 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="model"> (optional, default to &quot;Advanced&quot;)</param>
-        /// <param name="allowPhishing"> (optional, default to false)</param>
-        /// <param name="allowUnsolicitedSales"> (optional, default to false)</param>
-        /// <param name="allowPromotionalContent"> (optional, default to false)</param>
+        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional, default to &quot;Advanced&quot;)</param>
+        /// <param name="preprocessing">Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional, default to &quot;Auto&quot;)</param>
+        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionAdvancedResponse</returns>
-        public async System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostAsync(string model = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = await SpamDetectFileAdvancedPostWithHttpInfoAsync(model, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile, operationIndex, cancellationToken).ConfigureAwait(false);
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = await SpamDetectFileAdvancedPostWithHttpInfoAsync(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -522,15 +533,16 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected. 
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="model"> (optional, default to &quot;Advanced&quot;)</param>
-        /// <param name="allowPhishing"> (optional, default to false)</param>
-        /// <param name="allowUnsolicitedSales"> (optional, default to false)</param>
-        /// <param name="allowPromotionalContent"> (optional, default to false)</param>
+        /// <param name="model">Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional, default to &quot;Advanced&quot;)</param>
+        /// <param name="preprocessing">Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional, default to &quot;Auto&quot;)</param>
+        /// <param name="allowPhishing">True if phishing should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowUnsolicitedSales">True if unsolicited sales should be allowed, false otherwise (optional, default to false)</param>
+        /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="inputFile"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionAdvancedResponse)</returns>
-        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectFileAdvancedPostWithHttpInfoAsync(string model = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectFileAdvancedPostWithHttpInfoAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
@@ -561,6 +573,10 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             if (model != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("model", Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.ParameterToString(model)); // header parameter
+            }
+            if (preprocessing != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("preprocessing", Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.ParameterToString(preprocessing)); // header parameter
             }
             if (allowPhishing != null)
             {

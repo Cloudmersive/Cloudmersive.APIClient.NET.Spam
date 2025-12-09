@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost*
 
 <a id="spamdetectfileadvancedpost"></a>
 # **SpamDetectFileAdvancedPost**
-> SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost (string model = null, bool? allowPhishing = null, bool? allowUnsolicitedSales = null, bool? allowPromotionalContent = null, System.IO.Stream inputFile = null)
+> SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost (string model = null, string preprocessing = null, bool? allowPhishing = null, bool? allowUnsolicitedSales = null, bool? allowPromotionalContent = null, System.IO.Stream inputFile = null)
 
 Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
 
@@ -38,16 +38,17 @@ namespace Example
             // config.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new SpamDetectionApi(config);
-            var model = "\"Advanced\"";  // string |  (optional)  (default to "Advanced")
-            var allowPhishing = false;  // bool? |  (optional)  (default to false)
-            var allowUnsolicitedSales = false;  // bool? |  (optional)  (default to false)
-            var allowPromotionalContent = false;  // bool? |  (optional)  (default to false)
+            var model = "\"Advanced\"";  // string | Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional)  (default to "Advanced")
+            var preprocessing = "\"Auto\"";  // string | Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional)  (default to "Auto")
+            var allowPhishing = false;  // bool? | True if phishing should be allowed, false otherwise (optional)  (default to false)
+            var allowUnsolicitedSales = false;  // bool? | True if unsolicited sales should be allowed, false otherwise (optional)  (default to false)
+            var allowPromotionalContent = true;  // bool? | True if promotional content should be allowed, false otherwise (optional)  (default to true)
             var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
 
             try
             {
                 // Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
-                SpamDetectionAdvancedResponse result = apiInstance.SpamDetectFileAdvancedPost(model, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
+                SpamDetectionAdvancedResponse result = apiInstance.SpamDetectFileAdvancedPost(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -68,7 +69,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
-    ApiResponse<SpamDetectionAdvancedResponse> response = apiInstance.SpamDetectFileAdvancedPostWithHttpInfo(model, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
+    ApiResponse<SpamDetectionAdvancedResponse> response = apiInstance.SpamDetectFileAdvancedPostWithHttpInfo(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -85,10 +86,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **model** | **string** |  | [optional] [default to &quot;Advanced&quot;] |
-| **allowPhishing** | **bool?** |  | [optional] [default to false] |
-| **allowUnsolicitedSales** | **bool?** |  | [optional] [default to false] |
-| **allowPromotionalContent** | **bool?** |  | [optional] [default to false] |
+| **model** | **string** | Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. | [optional] [default to &quot;Advanced&quot;] |
+| **preprocessing** | **string** | Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. | [optional] [default to &quot;Auto&quot;] |
+| **allowPhishing** | **bool?** | True if phishing should be allowed, false otherwise | [optional] [default to false] |
+| **allowUnsolicitedSales** | **bool?** | True if unsolicited sales should be allowed, false otherwise | [optional] [default to false] |
+| **allowPromotionalContent** | **bool?** | True if promotional content should be allowed, false otherwise | [optional] [default to true] |
 | **inputFile** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
 
 ### Return type

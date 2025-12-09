@@ -149,25 +149,37 @@ paths:
   /spam/detect/file/advanced:
     post:
       parameters:
-      - in: header
+      - description: "Optional: Specify which AI model to use.  Possible choices are\
+          \ Normal and Advanced.  Default is Advanced."
+        in: header
         name: model
         schema:
           default: Advanced
           type: string
-      - in: header
+      - description: "Optional: Specify which preprocessing to Use.  Possible choices\
+          \ are None, Compatability and Auto.  Default is Auto."
+        in: header
+        name: preprocessing
+        schema:
+          default: Auto
+          type: string
+      - description: "True if phishing should be allowed, false otherwise"
+        in: header
         name: allowPhishing
         schema:
           default: false
           type: boolean
-      - in: header
+      - description: "True if unsolicited sales should be allowed, false otherwise"
+        in: header
         name: allowUnsolicitedSales
         schema:
           default: false
           type: boolean
-      - in: header
+      - description: "True if promotional content should be allowed, false otherwise"
+        in: header
         name: allowPromotionalContent
         schema:
-          default: false
+          default: true
           type: boolean
       requestBody:
         content:

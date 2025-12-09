@@ -62,11 +62,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string model = null;
+            //string preprocessing = null;
             //bool? allowPhishing = null;
             //bool? allowUnsolicitedSales = null;
             //bool? allowPromotionalContent = null;
             //System.IO.Stream inputFile = null;
-            //var response = instance.SpamDetectFileAdvancedPost(model, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
+            //var response = instance.SpamDetectFileAdvancedPost(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
             //Assert.IsType<SpamDetectionAdvancedResponse>(response);
         }
 
