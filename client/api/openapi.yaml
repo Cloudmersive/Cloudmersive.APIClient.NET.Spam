@@ -10,6 +10,9 @@ security:
 paths:
   /spam/detect/text-string:
     post:
+      description: "Analyzes input content as well as embedded URLs with AI deep learnign\
+        \ to detect spam, phishing and other unsafe content.  Uses 25-75 API calls\
+        \ depending on model selected."
       requestBody:
         content:
           application/json:
@@ -36,15 +39,88 @@ paths:
               schema:
                 $ref: '#/components/schemas/SpamDetectionResponse'
           description: OK
-      summary: "Perform AI spam detection and classification against input text string.\
-        \  Analyzes input content as well as embedded URLs with AI deep learnign to\
-        \ detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending\
-        \ on model selected."
+      summary: Perform AI spam detection and classification against input text string
+      tags:
+      - SpamDetection
+      x-codegen-request-body-name: body
+  /spam/detect/text-string/advanced:
+    post:
+      description: "Analyzes input content as well as embedded URLs with AI deep learnign\
+        \ to detect spam, phishing and other unsafe content.  Uses 25-100 API calls\
+        \ depending on model selected."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
+        description: Spam detection request
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
+          description: OK
+      summary: Perform advanced AI spam detection and classification against input
+        text string
+      tags:
+      - SpamDetection
+      x-codegen-request-body-name: body
+  /spam/detect/form-submission/advanced:
+    post:
+      description: "Analyzes form input content as well as embedded URLs with AI deep\
+        \ learnign to detect spam, phishing and other unsafe content.  Uses 25-100\
+        \ API calls depending on model selected."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
+        description: Spam detection request
+        required: false
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
+          description: OK
+      summary: Perform advanced AI spam detection and classification against a form
+        submission
       tags:
       - SpamDetection
       x-codegen-request-body-name: body
   /spam/detect/file:
     post:
+      description: "Analyzes input content as well as embedded URLs with AI deep learnign\
+        \ to detect spam, phishing and other unsafe content.  Uses 100-125 API calls\
+        \ depending on model selected.  Supported file formats include DOCX, PDF,\
+        \ XLSX, PPTX, EML, MSG, JPG, PNG and WEBP."
       parameters:
       - description: Model to use; default setting is Advanced
         in: header
@@ -70,84 +146,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/SpamDetectionResponse'
           description: OK
-      summary: "Perform AI spam detection and classification on an input image or\
-        \ document (PDF or DOCX).  Analyzes input content as well as embedded URLs\
-        \ with AI deep learnign to detect spam, phishing and other unsafe content.\
-        \  Uses 100-125 API calls depending on model selected."
+      summary: Perform AI spam detection and classification on an input image or document
+        (PDF or DOCX)
       tags:
       - SpamDetection
-  /spam/detect/text-string/advanced:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedRequest'
-        description: Spam detection request
-        required: false
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
-          description: OK
-      summary: "Perform advanced AI spam detection and classification against input\
-        \ text string.  Analyzes input content as well as embedded URLs with AI deep\
-        \ learnign to detect spam, phishing and other unsafe content.  Uses 25-100\
-        \ API calls depending on model selected."
-      tags:
-      - SpamDetection
-      x-codegen-request-body-name: body
-  /spam/detect/form-submission/advanced:
-    post:
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
-          text/json:
-            schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
-          application/*+json:
-            schema:
-              $ref: '#/components/schemas/SpamDetectionAdvancedFormSubmissionRequest'
-        description: Spam detection request
-        required: false
-      responses:
-        "200":
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
-            text/json:
-              schema:
-                $ref: '#/components/schemas/SpamDetectionFormSubmissionAdvancedResponse'
-          description: OK
-      summary: "Perform advanced AI spam detection and classification against a form\
-        \ submission.  Analyzes form input content as well as embedded URLs with AI\
-        \ deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100\
-        \ API calls depending on model selected."
-      tags:
-      - SpamDetection
-      x-codegen-request-body-name: body
   /spam/detect/file/advanced:
     post:
+      description: "Analyzes input content as well as embedded URLs with AI deep learning\
+        \ to detect spam, phishing and other unsafe content.  Uses 25-100 API calls\
+        \ depending on model selected.  Supported file formats include DOCX, PDF,\
+        \ XLSX, PPTX, EML, MSG, JPG, PNG and WEBP."
       parameters:
       - description: "Optional: Specify which AI model to use.  Possible choices are\
           \ Normal and Advanced.  Default is Advanced."
@@ -181,6 +189,14 @@ paths:
         schema:
           default: true
           type: boolean
+      - description: "Apply a Custom Policy for Spam Enforcement by providing the\
+          \ ID; to create a Custom Policy, navigate to the Cloudmersive Management\
+          \ Portal and select Custom Policies.  Requires Managed Instance or Private\
+          \ Cloud"
+        in: header
+        name: customPolicyId
+        schema:
+          type: string
       requestBody:
         content:
           multipart/form-data:
@@ -199,10 +215,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/SpamDetectionAdvancedResponse'
           description: OK
-      summary: "Perform advanced AI spam detection and classification against input\
-        \ text string.  Analyzes input content as well as embedded URLs with AI deep\
-        \ learnign to detect spam, phishing and other unsafe content.  Uses 25-100\
-        \ API calls depending on model selected."
+      summary: Perform advanced AI spam detection and classification against input
+        text file.
       tags:
       - SpamDetection
 components:
@@ -259,6 +273,7 @@ components:
       description: AI advanced spam detection request
       example:
         AllowPhishing: false
+        CustomPolicyID: CustomPolicyID
         InputString: Buy bitcoin now!!!!
         Model: Advanced
         AllowUnsolicitedSales: false
@@ -285,6 +300,12 @@ components:
           description: "True if phishing should be allowed, false otherwise"
           example: false
           type: boolean
+        CustomPolicyID:
+          description: "Apply a Custom Policy for Spam Enforcement by providing the\
+            \ ID; to create a Custom Policy, navigate to the Cloudmersive Management\
+            \ Portal and select Custom Policies.  Requires Managed Instance or Private\
+            \ Cloud"
+          type: string
       type: object
     SpamDetectionAdvancedResponse:
       additionalProperties: false

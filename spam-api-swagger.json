@@ -11,7 +11,8 @@
         "tags": [
           "SpamDetection"
         ],
-        "summary": "Perform AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.",
+        "summary": "Perform AI spam detection and classification against input text string",
+        "description": "Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-75 API calls depending on model selected.",
         "consumes": [
           "application/json",
           "text/json",
@@ -42,50 +43,13 @@
         }
       }
     },
-    "/spam/detect/file": {
-      "post": {
-        "tags": [
-          "SpamDetection"
-        ],
-        "summary": "Perform AI spam detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.",
-        "consumes": [
-          "multipart/form-data"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "model",
-            "description": "Model to use; default setting is Advanced",
-            "type": "string",
-            "default": "Advanced"
-          },
-          {
-            "in": "formData",
-            "name": "inputFile",
-            "type": "file"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/SpamDetectionResponse"
-            }
-          }
-        }
-      }
-    },
     "/spam/detect/text-string/advanced": {
       "post": {
         "tags": [
           "SpamDetection"
         ],
-        "summary": "Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.",
+        "summary": "Perform advanced AI spam detection and classification against input text string",
+        "description": "Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.",
         "consumes": [
           "application/json",
           "text/json",
@@ -121,7 +85,8 @@
         "tags": [
           "SpamDetection"
         ],
-        "summary": "Perform advanced AI spam detection and classification against a form submission.  Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.",
+        "summary": "Perform advanced AI spam detection and classification against a form submission",
+        "description": "Analyzes form input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.",
         "consumes": [
           "application/json",
           "text/json",
@@ -152,12 +117,52 @@
         }
       }
     },
+    "/spam/detect/file": {
+      "post": {
+        "tags": [
+          "SpamDetection"
+        ],
+        "summary": "Perform AI spam detection and classification on an input image or document (PDF or DOCX)",
+        "description": "Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.  Supported file formats include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "model",
+            "description": "Model to use; default setting is Advanced",
+            "type": "string",
+            "default": "Advanced"
+          },
+          {
+            "in": "formData",
+            "name": "inputFile",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SpamDetectionResponse"
+            }
+          }
+        }
+      }
+    },
     "/spam/detect/file/advanced": {
       "post": {
         "tags": [
           "SpamDetection"
         ],
-        "summary": "Perform advanced AI spam detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.",
+        "summary": "Perform advanced AI spam detection and classification against input text file.",
+        "description": "Analyzes input content as well as embedded URLs with AI deep learning to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.  Supported file formats include DOCX, PDF, XLSX, PPTX, EML, MSG, JPG, PNG and WEBP.",
         "consumes": [
           "multipart/form-data"
         ],
@@ -201,6 +206,12 @@
             "description": "True if promotional content should be allowed, false otherwise",
             "type": "boolean",
             "default": true
+          },
+          {
+            "in": "header",
+            "name": "customPolicyId",
+            "description": "Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud",
+            "type": "string"
           },
           {
             "in": "formData",
@@ -294,6 +305,10 @@
           "description": "True if phishing should be allowed, false otherwise",
           "type": "boolean",
           "example": false
+        },
+        "CustomPolicyID": {
+          "description": "Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud",
+          "type": "string"
         }
       },
       "additionalProperties": false

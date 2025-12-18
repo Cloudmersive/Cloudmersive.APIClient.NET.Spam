@@ -66,8 +66,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Api
             //bool? allowPhishing = null;
             //bool? allowUnsolicitedSales = null;
             //bool? allowPromotionalContent = null;
+            //string customPolicyId = null;
             //System.IO.Stream inputFile = null;
-            //var response = instance.SpamDetectFileAdvancedPost(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, inputFile);
+            //var response = instance.SpamDetectFileAdvancedPost(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, customPolicyId, inputFile);
             //Assert.IsType<SpamDetectionAdvancedResponse>(response);
         }
 

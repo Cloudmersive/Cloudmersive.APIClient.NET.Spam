@@ -98,5 +98,14 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Model
         {
             // TODO unit test for the property 'AllowPhishing'
         }
+
+        /// <summary>
+        /// Test the property 'CustomPolicyID'
+        /// </summary>
+        [Fact]
+        public void CustomPolicyIDTest()
+        {
+            // TODO unit test for the property 'CustomPolicyID'
+        }
     }
 }
