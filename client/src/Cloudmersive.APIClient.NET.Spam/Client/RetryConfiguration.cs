@@ -9,7 +9,7 @@
 
 
 using Polly;
-using RestSharp;
+using System.Net.Http;
 
 namespace Cloudmersive.APIClient.NET.Spam.Client
 {
@@ -21,11 +21,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Client
         /// <summary>
         /// Retry policy
         /// </summary>
-        public static Policy<RestResponse> RetryPolicy { get; set; }
+        public static Policy<HttpResponseMessage> RetryPolicy { get; set; }
 
         /// <summary>
         /// Async retry policy
         /// </summary>
-        public static AsyncPolicy<RestResponse> AsyncRetryPolicy { get; set; }
+        public static AsyncPolicy<HttpResponseMessage> AsyncRetryPolicy { get; set; }
     }
 }

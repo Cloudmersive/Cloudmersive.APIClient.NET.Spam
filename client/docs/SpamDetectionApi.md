@@ -12,7 +12,7 @@ All URIs are relative to *http://localhost*
 
 <a id="spamdetectfileadvancedpost"></a>
 # **SpamDetectFileAdvancedPost**
-> SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost (string model = null, string preprocessing = null, bool? allowPhishing = null, bool? allowUnsolicitedSales = null, bool? allowPromotionalContent = null, string customPolicyId = null, System.IO.Stream inputFile = null)
+> SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost (string model = null, string preprocessing = null, bool? allowPhishing = null, bool? allowUnsolicitedSales = null, bool? allowPromotionalContent = null, string customPolicyId = null, FileParameter inputFile = null)
 
 Perform advanced AI spam detection and classification against input text file.
 
@@ -22,6 +22,7 @@ Analyzes input content as well as embedded URLs with AI deep learning to detect 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Cloudmersive.APIClient.NET.Spam.Api;
 using Cloudmersive.APIClient.NET.Spam.Client;
 using Cloudmersive.APIClient.NET.Spam.Model;
@@ -39,14 +40,17 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new SpamDetectionApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SpamDetectionApi(httpClient, config, httpClientHandler);
             var model = "\"Advanced\"";  // string | Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced. (optional)  (default to "Advanced")
             var preprocessing = "\"Auto\"";  // string | Optional: Specify which preprocessing to Use.  Possible choices are None, Compatability and Auto.  Default is Auto. (optional)  (default to "Auto")
             var allowPhishing = false;  // bool? | True if phishing should be allowed, false otherwise (optional)  (default to false)
             var allowUnsolicitedSales = false;  // bool? | True if unsolicited sales should be allowed, false otherwise (optional)  (default to false)
             var allowPromotionalContent = true;  // bool? | True if promotional content should be allowed, false otherwise (optional)  (default to true)
             var customPolicyId = "customPolicyId_example";  // string | Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional) 
-            var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter |  (optional) 
 
             try
             {
@@ -95,7 +99,7 @@ catch (ApiException e)
 | **allowUnsolicitedSales** | **bool?** | True if unsolicited sales should be allowed, false otherwise | [optional] [default to false] |
 | **allowPromotionalContent** | **bool?** | True if promotional content should be allowed, false otherwise | [optional] [default to true] |
 | **customPolicyId** | **string** | Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud | [optional]  |
-| **inputFile** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
+| **inputFile** | **FileParameter****FileParameter** |  | [optional]  |
 
 ### Return type
 
@@ -120,7 +124,7 @@ catch (ApiException e)
 
 <a id="spamdetectfilepost"></a>
 # **SpamDetectFilePost**
-> SpamDetectionResponse SpamDetectFilePost (string model = null, System.IO.Stream inputFile = null)
+> SpamDetectionResponse SpamDetectFilePost (string model = null, FileParameter inputFile = null)
 
 Perform AI spam detection and classification on an input image or document (PDF or DOCX)
 
@@ -130,6 +134,7 @@ Analyzes input content as well as embedded URLs with AI deep learnign to detect 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Cloudmersive.APIClient.NET.Spam.Api;
 using Cloudmersive.APIClient.NET.Spam.Client;
 using Cloudmersive.APIClient.NET.Spam.Model;
@@ -147,9 +152,12 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new SpamDetectionApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SpamDetectionApi(httpClient, config, httpClientHandler);
             var model = "\"Advanced\"";  // string | Model to use; default setting is Advanced (optional)  (default to "Advanced")
-            var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // System.IO.Stream |  (optional) 
+            var inputFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter |  (optional) 
 
             try
             {
@@ -193,7 +201,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **model** | **string** | Model to use; default setting is Advanced | [optional] [default to &quot;Advanced&quot;] |
-| **inputFile** | **System.IO.Stream****System.IO.Stream** |  | [optional]  |
+| **inputFile** | **FileParameter****FileParameter** |  | [optional]  |
 
 ### Return type
 
@@ -228,6 +236,7 @@ Analyzes form input content as well as embedded URLs with AI deep learnign to de
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Cloudmersive.APIClient.NET.Spam.Api;
 using Cloudmersive.APIClient.NET.Spam.Client;
 using Cloudmersive.APIClient.NET.Spam.Model;
@@ -245,7 +254,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new SpamDetectionApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SpamDetectionApi(httpClient, config, httpClientHandler);
             var body = new SpamDetectionAdvancedFormSubmissionRequest(); // SpamDetectionAdvancedFormSubmissionRequest | Spam detection request (optional) 
 
             try
@@ -324,6 +336,7 @@ Analyzes input content as well as embedded URLs with AI deep learnign to detect 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Cloudmersive.APIClient.NET.Spam.Api;
 using Cloudmersive.APIClient.NET.Spam.Client;
 using Cloudmersive.APIClient.NET.Spam.Model;
@@ -341,7 +354,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new SpamDetectionApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SpamDetectionApi(httpClient, config, httpClientHandler);
             var body = new SpamDetectionAdvancedRequest(); // SpamDetectionAdvancedRequest | Spam detection request (optional) 
 
             try
@@ -420,6 +436,7 @@ Analyzes input content as well as embedded URLs with AI deep learnign to detect 
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Http;
 using Cloudmersive.APIClient.NET.Spam.Api;
 using Cloudmersive.APIClient.NET.Spam.Client;
 using Cloudmersive.APIClient.NET.Spam.Model;
@@ -437,7 +454,10 @@ namespace Example
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new SpamDetectionApi(config);
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SpamDetectionApi(httpClient, config, httpClientHandler);
             var body = new SpamDetectionRequest(); // SpamDetectionRequest | Spam detection request (optional) 
 
             try

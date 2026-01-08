@@ -1,6 +1,6 @@
 ﻿{
     "packageName": "Cloudmersive.APIClient.NET.Spam",
-    "packageVersion": "4.1.6",
+    "packageVersion": "5.0.0",
 
 
     "packageTitle":       "Cloudmersive Spam Detection API Client",
@@ -19,10 +19,10 @@
 
     "licenseId": "Apache-2.0",
 
-    "packageCopyright":          "Copyright © 2025 Cloudmersive, LLC.",
+    "packageCopyright":          "Copyright © 2026 Cloudmersive, LLC.",
 
     "packageGuid": "d3c2b345-9f50-438e-afdf-4494fbd7bd59",
-    "library": "restsharp",
+    "library": "httpclient",
     "supportsFileParameters": true,
     "targetFramework": "netstandard2.0",
     "netCoreProjectFile": false

@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using RestSharp;
 using Xunit;
 
 using Cloudmersive.APIClient.NET.Spam.Client;
@@ -67,7 +66,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Api
             //bool? allowUnsolicitedSales = null;
             //bool? allowPromotionalContent = null;
             //string customPolicyId = null;
-            //System.IO.Stream inputFile = null;
+            //FileParameter inputFile = null;
             //var response = instance.SpamDetectFileAdvancedPost(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, customPolicyId, inputFile);
             //Assert.IsType<SpamDetectionAdvancedResponse>(response);
         }
@@ -80,7 +79,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string model = null;
-            //System.IO.Stream inputFile = null;
+            //FileParameter inputFile = null;
             //var response = instance.SpamDetectFilePost(model, inputFile);
             //Assert.IsType<SpamDetectionResponse>(response);
         }

@@ -29,8 +29,8 @@ src/Cloudmersive.APIClient.NET.Spam/Client/ApiResponse.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/ClientUtils.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/Configuration.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/ExceptionFactory.cs
+src/Cloudmersive.APIClient.NET.Spam/Client/FileParameter.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/GlobalConfiguration.cs
-src/Cloudmersive.APIClient.NET.Spam/Client/HttpMethod.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/IApiAccessor.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/IAsynchronousClient.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/IReadableConfiguration.cs
@@ -39,6 +39,7 @@ src/Cloudmersive.APIClient.NET.Spam/Client/Multimap.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/OpenAPIDateConverter.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/RequestOptions.cs
 src/Cloudmersive.APIClient.NET.Spam/Client/RetryConfiguration.cs
+src/Cloudmersive.APIClient.NET.Spam/Client/WebRequestPathBuilder.cs
 src/Cloudmersive.APIClient.NET.Spam/Cloudmersive.APIClient.NET.Spam.csproj
 src/Cloudmersive.APIClient.NET.Spam/Model/AbstractOpenAPISchema.cs
 src/Cloudmersive.APIClient.NET.Spam/Model/SpamDetectionAdvancedFormField.cs

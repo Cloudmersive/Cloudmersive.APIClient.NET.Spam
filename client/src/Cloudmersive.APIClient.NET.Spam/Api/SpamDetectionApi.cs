@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Mime;
 using Cloudmersive.APIClient.NET.Spam.Client;
 using Cloudmersive.APIClient.NET.Spam.Model;
@@ -40,9 +41,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="customPolicyId">Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionAdvancedResponse</returns>
-        SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
+        SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), FileParameter inputFile = default(FileParameter));
 
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text file.
@@ -58,9 +58,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="customPolicyId">Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionAdvancedResponse</returns>
-        ApiResponse<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostWithHttpInfo(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
+        ApiResponse<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostWithHttpInfo(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), FileParameter inputFile = default(FileParameter));
         /// <summary>
         /// Perform AI spam detection and classification on an input image or document (PDF or DOCX)
         /// </summary>
@@ -70,9 +69,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to &quot;Advanced&quot;)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionResponse</returns>
-        SpamDetectionResponse SpamDetectFilePost(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
+        SpamDetectionResponse SpamDetectFilePost(string model = default(string), FileParameter inputFile = default(FileParameter));
 
         /// <summary>
         /// Perform AI spam detection and classification on an input image or document (PDF or DOCX)
@@ -83,9 +81,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to &quot;Advanced&quot;)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionResponse</returns>
-        ApiResponse<SpamDetectionResponse> SpamDetectFilePostWithHttpInfo(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0);
+        ApiResponse<SpamDetectionResponse> SpamDetectFilePostWithHttpInfo(string model = default(string), FileParameter inputFile = default(FileParameter));
         /// <summary>
         /// Perform advanced AI spam detection and classification against a form submission
         /// </summary>
@@ -94,9 +91,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionFormSubmissionAdvancedResponse</returns>
-        SpamDetectionFormSubmissionAdvancedResponse SpamDetectFormSubmissionAdvancedPost(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0);
+        SpamDetectionFormSubmissionAdvancedResponse SpamDetectFormSubmissionAdvancedPost(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest));
 
         /// <summary>
         /// Perform advanced AI spam detection and classification against a form submission
@@ -106,9 +102,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionFormSubmissionAdvancedResponse</returns>
-        ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostWithHttpInfo(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0);
+        ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostWithHttpInfo(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest));
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text string
         /// </summary>
@@ -117,9 +112,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionAdvancedResponse</returns>
-        SpamDetectionAdvancedResponse SpamDetectTextStringAdvancedPost(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), int operationIndex = 0);
+        SpamDetectionAdvancedResponse SpamDetectTextStringAdvancedPost(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest));
 
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text string
@@ -129,9 +123,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionAdvancedResponse</returns>
-        ApiResponse<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostWithHttpInfo(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), int operationIndex = 0);
+        ApiResponse<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostWithHttpInfo(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest));
         /// <summary>
         /// Perform AI spam detection and classification against input text string
         /// </summary>
@@ -140,9 +133,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionResponse</returns>
-        SpamDetectionResponse SpamDetectTextStringPost(SpamDetectionRequest body = default(SpamDetectionRequest), int operationIndex = 0);
+        SpamDetectionResponse SpamDetectTextStringPost(SpamDetectionRequest body = default(SpamDetectionRequest));
 
         /// <summary>
         /// Perform AI spam detection and classification against input text string
@@ -152,9 +144,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionResponse</returns>
-        ApiResponse<SpamDetectionResponse> SpamDetectTextStringPostWithHttpInfo(SpamDetectionRequest body = default(SpamDetectionRequest), int operationIndex = 0);
+        ApiResponse<SpamDetectionResponse> SpamDetectTextStringPostWithHttpInfo(SpamDetectionRequest body = default(SpamDetectionRequest));
         #endregion Synchronous Operations
     }
 
@@ -178,10 +169,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="customPolicyId">Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionAdvancedResponse</returns>
-        System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), FileParameter inputFile = default(FileParameter), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text file.
@@ -197,10 +187,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="customPolicyId">Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionAdvancedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectFileAdvancedPostWithHttpInfoAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectFileAdvancedPostWithHttpInfoAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), FileParameter inputFile = default(FileParameter), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Perform AI spam detection and classification on an input image or document (PDF or DOCX)
         /// </summary>
@@ -210,10 +199,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to &quot;Advanced&quot;)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionResponse</returns>
-        System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectFilePostAsync(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectFilePostAsync(string model = default(string), FileParameter inputFile = default(FileParameter), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Perform AI spam detection and classification on an input image or document (PDF or DOCX)
@@ -224,10 +212,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to &quot;Advanced&quot;)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectFilePostWithHttpInfoAsync(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectFilePostWithHttpInfoAsync(string model = default(string), FileParameter inputFile = default(FileParameter), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Perform advanced AI spam detection and classification against a form submission
         /// </summary>
@@ -236,10 +223,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionFormSubmissionAdvancedResponse</returns>
-        System.Threading.Tasks.Task<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Perform advanced AI spam detection and classification against a form submission
@@ -249,10 +235,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionFormSubmissionAdvancedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SpamDetectionFormSubmissionAdvancedResponse>> SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SpamDetectionFormSubmissionAdvancedResponse>> SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text string
         /// </summary>
@@ -261,10 +246,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionAdvancedResponse</returns>
-        System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostAsync(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostAsync(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Perform advanced AI spam detection and classification against input text string
@@ -274,10 +258,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionAdvancedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectTextStringAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectTextStringAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Perform AI spam detection and classification against input text string
         /// </summary>
@@ -286,10 +269,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionResponse</returns>
-        System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectTextStringPostAsync(SpamDetectionRequest body = default(SpamDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectTextStringPostAsync(SpamDetectionRequest body = default(SpamDetectionRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Perform AI spam detection and classification against input text string
@@ -299,10 +281,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectTextStringPostWithHttpInfoAsync(SpamDetectionRequest body = default(SpamDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SpamDetectionResponse>> SpamDetectTextStringPostWithHttpInfoAsync(SpamDetectionRequest body = default(SpamDetectionRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -317,12 +298,14 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class SpamDetectionApi : ISpamDetectionApi
+    public partial class SpamDetectionApi : IDisposable, ISpamDetectionApi
     {
         private Cloudmersive.APIClient.NET.Spam.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SpamDetectionApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
         /// <returns></returns>
         public SpamDetectionApi() : this((string)null)
@@ -331,7 +314,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SpamDetectionApi"/> class.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <exception cref="ArgumentException"></exception>
         /// <returns></returns>
         public SpamDetectionApi(string basePath)
         {
@@ -339,16 +326,19 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 Cloudmersive.APIClient.NET.Spam.Client.GlobalConfiguration.Instance,
                 new Cloudmersive.APIClient.NET.Spam.Client.Configuration { BasePath = basePath }
             );
-            this.Client = new Cloudmersive.APIClient.NET.Spam.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Cloudmersive.APIClient.NET.Spam.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Cloudmersive.APIClient.NET.Spam.Client.ApiClient(this.Configuration.BasePath);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             this.ExceptionFactory = Cloudmersive.APIClient.NET.Spam.Client.Configuration.DefaultExceptionFactory;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpamDetectionApi"/> class
-        /// using Configuration object
+        /// Initializes a new instance of the <see cref="SpamDetectionApi"/> class using Configuration object.
+        /// **IMPORTANT** This will also create an instance of HttpClient, which is less than ideal.
+        /// It's better to reuse the <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net">HttpClient and HttpClientHandler</see>.
         /// </summary>
-        /// <param name="configuration">An instance of Configuration</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
         public SpamDetectionApi(Cloudmersive.APIClient.NET.Spam.Client.Configuration configuration)
         {
@@ -358,8 +348,78 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 Cloudmersive.APIClient.NET.Spam.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new Cloudmersive.APIClient.NET.Spam.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Cloudmersive.APIClient.NET.Spam.Client.ApiClient(this.Configuration.BasePath);
+            this.ApiClient = new Cloudmersive.APIClient.NET.Spam.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            ExceptionFactory = Cloudmersive.APIClient.NET.Spam.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SpamDetectionApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public SpamDetectionApi(HttpClient client, HttpClientHandler handler = null) : this(client, (string)null, handler)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SpamDetectionApi"/> class.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public SpamDetectionApi(HttpClient client, string basePath, HttpClientHandler handler = null)
+        {
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Cloudmersive.APIClient.NET.Spam.Client.Configuration.MergeConfigurations(
+                Cloudmersive.APIClient.NET.Spam.Client.GlobalConfiguration.Instance,
+                new Cloudmersive.APIClient.NET.Spam.Client.Configuration { BasePath = basePath }
+            );
+            this.ApiClient = new Cloudmersive.APIClient.NET.Spam.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client =  this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
+            this.ExceptionFactory = Cloudmersive.APIClient.NET.Spam.Client.Configuration.DefaultExceptionFactory;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SpamDetectionApi"/> class using Configuration object.
+        /// </summary>
+        /// <param name="client">An instance of HttpClient.</param>
+        /// <param name="configuration">An instance of Configuration.</param>
+        /// <param name="handler">An optional instance of HttpClientHandler that is used by HttpClient.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        /// <remarks>
+        /// Some configuration settings will not be applied without passing an HttpClientHandler.
+        /// The features affected are: Setting and Retrieving Cookies, Client Certificates, Proxy settings.
+        /// </remarks>
+        public SpamDetectionApi(HttpClient client, Cloudmersive.APIClient.NET.Spam.Client.Configuration configuration, HttpClientHandler handler = null)
+        {
+            if (configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+
+            this.Configuration = Cloudmersive.APIClient.NET.Spam.Client.Configuration.MergeConfigurations(
+                Cloudmersive.APIClient.NET.Spam.Client.GlobalConfiguration.Instance,
+                configuration
+            );
+            this.ApiClient = new Cloudmersive.APIClient.NET.Spam.Client.ApiClient(client, this.Configuration.BasePath, handler);
+            this.Client = this.ApiClient;
+            this.AsynchronousClient = this.ApiClient;
             ExceptionFactory = Cloudmersive.APIClient.NET.Spam.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -370,6 +430,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public SpamDetectionApi(Cloudmersive.APIClient.NET.Spam.Client.ISynchronousClient client, Cloudmersive.APIClient.NET.Spam.Client.IAsynchronousClient asyncClient, Cloudmersive.APIClient.NET.Spam.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
@@ -381,6 +442,19 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             this.Configuration = configuration;
             this.ExceptionFactory = Cloudmersive.APIClient.NET.Spam.Client.Configuration.DefaultExceptionFactory;
         }
+
+        /// <summary>
+        /// Disposes resources if they were created by us
+        /// </summary>
+        public void Dispose()
+        {
+            this.ApiClient?.Dispose();
+        }
+
+        /// <summary>
+        /// Holds the ApiClient if created
+        /// </summary>
+        public Cloudmersive.APIClient.NET.Spam.Client.ApiClient ApiClient { get; set; } = null;
 
         /// <summary>
         /// The client for accessing this underlying API asynchronously.
@@ -434,9 +508,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="customPolicyId">Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionAdvancedResponse</returns>
-        public SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0)
+        public SpamDetectionAdvancedResponse SpamDetectFileAdvancedPost(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), FileParameter inputFile = default(FileParameter))
         {
             Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = SpamDetectFileAdvancedPostWithHttpInfo(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, customPolicyId, inputFile);
             return localVarResponse.Data;
@@ -453,9 +526,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="customPolicyId">Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionAdvancedResponse</returns>
-        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostWithHttpInfo(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0)
+        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostWithHttpInfo(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), FileParameter inputFile = default(FileParameter))
         {
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
 
@@ -471,17 +543,10 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             };
 
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (model != null)
             {
@@ -512,9 +577,6 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 localVarRequestOptions.FileParameters.Add("inputFile", inputFile);
             }
 
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectFileAdvancedPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
@@ -523,13 +585,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SpamDetectionAdvancedResponse>("/spam/detect/file/advanced", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectFileAdvancedPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -546,12 +606,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="customPolicyId">Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionAdvancedResponse</returns>
-        public async System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectFileAdvancedPostAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), FileParameter inputFile = default(FileParameter), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = await SpamDetectFileAdvancedPostWithHttpInfoAsync(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, customPolicyId, inputFile, operationIndex, cancellationToken).ConfigureAwait(false);
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = await SpamDetectFileAdvancedPostWithHttpInfoAsync(model, preprocessing, allowPhishing, allowUnsolicitedSales, allowPromotionalContent, customPolicyId, inputFile, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -566,10 +625,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <param name="allowPromotionalContent">True if promotional content should be allowed, false otherwise (optional, default to true)</param>
         /// <param name="customPolicyId">Apply a Custom Policy for Spam Enforcement by providing the ID; to create a Custom Policy, navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud (optional)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionAdvancedResponse)</returns>
-        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectFileAdvancedPostWithHttpInfoAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectFileAdvancedPostWithHttpInfoAsync(string model = default(string), string preprocessing = default(string), bool? allowPhishing = default(bool?), bool? allowUnsolicitedSales = default(bool?), bool? allowPromotionalContent = default(bool?), string customPolicyId = default(string), FileParameter inputFile = default(FileParameter), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
@@ -585,17 +643,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 "text/json"
             };
 
+
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (model != null)
             {
@@ -626,9 +679,6 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 localVarRequestOptions.FileParameters.Add("inputFile", inputFile);
             }
 
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectFileAdvancedPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
@@ -636,15 +686,13 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SpamDetectionAdvancedResponse>("/spam/detect/file/advanced", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectFileAdvancedPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -656,9 +704,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to &quot;Advanced&quot;)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionResponse</returns>
-        public SpamDetectionResponse SpamDetectFilePost(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0)
+        public SpamDetectionResponse SpamDetectFilePost(string model = default(string), FileParameter inputFile = default(FileParameter))
         {
             Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> localVarResponse = SpamDetectFilePostWithHttpInfo(model, inputFile);
             return localVarResponse.Data;
@@ -670,9 +717,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to &quot;Advanced&quot;)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionResponse</returns>
-        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> SpamDetectFilePostWithHttpInfo(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0)
+        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> SpamDetectFilePostWithHttpInfo(string model = default(string), FileParameter inputFile = default(FileParameter))
         {
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
 
@@ -688,17 +734,10 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             };
 
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (model != null)
             {
@@ -709,9 +748,6 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 localVarRequestOptions.FileParameters.Add("inputFile", inputFile);
             }
 
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectFilePost";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
@@ -720,13 +756,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SpamDetectionResponse>("/spam/detect/file", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectFilePost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -738,12 +772,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to &quot;Advanced&quot;)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionResponse</returns>
-        public async System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectFilePostAsync(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectFilePostAsync(string model = default(string), FileParameter inputFile = default(FileParameter), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> localVarResponse = await SpamDetectFilePostWithHttpInfoAsync(model, inputFile, operationIndex, cancellationToken).ConfigureAwait(false);
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> localVarResponse = await SpamDetectFilePostWithHttpInfoAsync(model, inputFile, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -753,10 +786,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Model to use; default setting is Advanced (optional, default to &quot;Advanced&quot;)</param>
         /// <param name="inputFile"> (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionResponse)</returns>
-        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse>> SpamDetectFilePostWithHttpInfoAsync(string model = default(string), System.IO.Stream inputFile = default(System.IO.Stream), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse>> SpamDetectFilePostWithHttpInfoAsync(string model = default(string), FileParameter inputFile = default(FileParameter), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
@@ -772,17 +804,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 "text/json"
             };
 
+
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             if (model != null)
             {
@@ -793,9 +820,6 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 localVarRequestOptions.FileParameters.Add("inputFile", inputFile);
             }
 
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectFilePost";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
@@ -803,15 +827,13 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SpamDetectionResponse>("/spam/detect/file", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectFilePost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -822,9 +844,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionFormSubmissionAdvancedResponse</returns>
-        public SpamDetectionFormSubmissionAdvancedResponse SpamDetectFormSubmissionAdvancedPost(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0)
+        public SpamDetectionFormSubmissionAdvancedResponse SpamDetectFormSubmissionAdvancedPost(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest))
         {
             Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> localVarResponse = SpamDetectFormSubmissionAdvancedPostWithHttpInfo(body);
             return localVarResponse.Data;
@@ -835,9 +856,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionFormSubmissionAdvancedResponse</returns>
-        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostWithHttpInfo(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0)
+        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostWithHttpInfo(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest))
         {
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
 
@@ -855,22 +875,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             };
 
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = body;
-
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectFormSubmissionAdvancedPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -880,13 +890,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SpamDetectionFormSubmissionAdvancedResponse>("/spam/detect/form-submission/advanced", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectFormSubmissionAdvancedPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -897,12 +905,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionFormSubmissionAdvancedResponse</returns>
-        public async System.Threading.Tasks.Task<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SpamDetectionFormSubmissionAdvancedResponse> SpamDetectFormSubmissionAdvancedPostAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> localVarResponse = await SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse> localVarResponse = await SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -911,10 +918,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionFormSubmissionAdvancedResponse)</returns>
-        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse>> SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionFormSubmissionAdvancedResponse>> SpamDetectFormSubmissionAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedFormSubmissionRequest body = default(SpamDetectionAdvancedFormSubmissionRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
@@ -932,22 +938,14 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 "text/json"
             };
 
+
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = body;
-
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectFormSubmissionAdvancedPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -956,15 +954,13 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SpamDetectionFormSubmissionAdvancedResponse>("/spam/detect/form-submission/advanced", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectFormSubmissionAdvancedPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -975,9 +971,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionAdvancedResponse</returns>
-        public SpamDetectionAdvancedResponse SpamDetectTextStringAdvancedPost(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), int operationIndex = 0)
+        public SpamDetectionAdvancedResponse SpamDetectTextStringAdvancedPost(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest))
         {
             Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = SpamDetectTextStringAdvancedPostWithHttpInfo(body);
             return localVarResponse.Data;
@@ -988,9 +983,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionAdvancedResponse</returns>
-        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostWithHttpInfo(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), int operationIndex = 0)
+        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostWithHttpInfo(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest))
         {
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
 
@@ -1008,22 +1002,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             };
 
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = body;
-
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectTextStringAdvancedPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -1033,13 +1017,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SpamDetectionAdvancedResponse>("/spam/detect/text-string/advanced", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectTextStringAdvancedPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1050,12 +1032,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionAdvancedResponse</returns>
-        public async System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostAsync(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SpamDetectionAdvancedResponse> SpamDetectTextStringAdvancedPostAsync(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = await SpamDetectTextStringAdvancedPostWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse> localVarResponse = await SpamDetectTextStringAdvancedPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1064,10 +1045,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionAdvancedResponse)</returns>
-        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectTextStringAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionAdvancedResponse>> SpamDetectTextStringAdvancedPostWithHttpInfoAsync(SpamDetectionAdvancedRequest body = default(SpamDetectionAdvancedRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
@@ -1085,22 +1065,14 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 "text/json"
             };
 
+
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = body;
-
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectTextStringAdvancedPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -1109,15 +1081,13 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SpamDetectionAdvancedResponse>("/spam/detect/text-string/advanced", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectTextStringAdvancedPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1128,9 +1098,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SpamDetectionResponse</returns>
-        public SpamDetectionResponse SpamDetectTextStringPost(SpamDetectionRequest body = default(SpamDetectionRequest), int operationIndex = 0)
+        public SpamDetectionResponse SpamDetectTextStringPost(SpamDetectionRequest body = default(SpamDetectionRequest))
         {
             Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> localVarResponse = SpamDetectTextStringPostWithHttpInfo(body);
             return localVarResponse.Data;
@@ -1141,9 +1110,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SpamDetectionResponse</returns>
-        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> SpamDetectTextStringPostWithHttpInfo(SpamDetectionRequest body = default(SpamDetectionRequest), int operationIndex = 0)
+        public Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> SpamDetectTextStringPostWithHttpInfo(SpamDetectionRequest body = default(SpamDetectionRequest))
         {
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
 
@@ -1161,22 +1129,12 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             };
 
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = body;
-
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectTextStringPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -1186,13 +1144,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<SpamDetectionResponse>("/spam/detect/text-string", localVarRequestOptions, this.Configuration);
+
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectTextStringPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;
@@ -1203,12 +1159,11 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SpamDetectionResponse</returns>
-        public async System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectTextStringPostAsync(SpamDetectionRequest body = default(SpamDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SpamDetectionResponse> SpamDetectTextStringPostAsync(SpamDetectionRequest body = default(SpamDetectionRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> localVarResponse = await SpamDetectTextStringPostWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse> localVarResponse = await SpamDetectTextStringPostWithHttpInfoAsync(body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1217,10 +1172,9 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.Spam.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">Spam detection request (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SpamDetectionResponse)</returns>
-        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse>> SpamDetectTextStringPostWithHttpInfoAsync(SpamDetectionRequest body = default(SpamDetectionRequest), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Cloudmersive.APIClient.NET.Spam.Client.ApiResponse<SpamDetectionResponse>> SpamDetectTextStringPostWithHttpInfoAsync(SpamDetectionRequest body = default(SpamDetectionRequest), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Cloudmersive.APIClient.NET.Spam.Client.RequestOptions localVarRequestOptions = new Cloudmersive.APIClient.NET.Spam.Client.RequestOptions();
@@ -1238,22 +1192,14 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
                 "text/json"
             };
 
+
             var localVarContentType = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = Cloudmersive.APIClient.NET.Spam.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.Data = body;
-
-            localVarRequestOptions.Operation = "SpamDetectionApi.SpamDetectTextStringPost";
-            localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (Apikey) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -1262,15 +1208,13 @@ namespace Cloudmersive.APIClient.NET.Spam.Api
             }
 
             // make the HTTP request
+
             var localVarResponse = await this.AsynchronousClient.PostAsync<SpamDetectionResponse>("/spam/detect/text-string", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SpamDetectTextStringPost", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
+                if (_exception != null) throw _exception;
             }
 
             return localVarResponse;

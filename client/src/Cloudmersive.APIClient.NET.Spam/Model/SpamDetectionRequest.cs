@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
+using FileParameter = Cloudmersive.APIClient.NET.Spam.Client.FileParameter;
 using OpenAPIDateConverter = Cloudmersive.APIClient.NET.Spam.Client.OpenAPIDateConverter;
 
 namespace Cloudmersive.APIClient.NET.Spam.Model
