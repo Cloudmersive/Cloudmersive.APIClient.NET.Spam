@@ -33,7 +33,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "5.0.1";
+        public const string Version = "5.0.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -112,8 +112,8 @@ namespace Cloudmersive.APIClient.NET.Spam.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/5.0.1/csharp");
-            BasePath = "http://localhost";
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/5.0.2/csharp");
+            BasePath = "https://api.cloudmersive.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -121,7 +121,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", ""},
+                        {"url", "https://api.cloudmersive.com"},
                         {"description", "No description provided"},
                     }
                 }
@@ -142,7 +142,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "http://localhost") : this()
+            string basePath = "https://api.cloudmersive.com") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -535,7 +535,7 @@ namespace Cloudmersive.APIClient.NET.Spam.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v1\n";
-            report += "    SDK Package Version: 5.0.1\n";
+            report += "    SDK Package Version: 5.0.2\n";
 
             return report;
         }

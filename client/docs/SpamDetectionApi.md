@@ -1,6 +1,6 @@
 # Cloudmersive.APIClient.NET.Spam.Api.SpamDetectionApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.cloudmersive.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -34,7 +34,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -146,7 +146,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -248,7 +248,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -348,7 +348,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -448,7 +448,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.cloudmersive.com";
             // Configure API key authorization: Apikey
             config.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

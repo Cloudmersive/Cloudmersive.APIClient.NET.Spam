@@ -4,7 +4,7 @@ info:
   title: spamapi
   version: v1
 servers:
-- url: /
+- url: https://api.cloudmersive.com/
 security:
 - Apikey: []
 paths:

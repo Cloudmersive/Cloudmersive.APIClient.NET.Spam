@@ -5,6 +5,10 @@
     "description": "Easily and directly scan and block spam security threats in input.",
     "version": "v1"
   },
+  "host": "api.cloudmersive.com",
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/spam/detect/text-string": {
       "post": {
